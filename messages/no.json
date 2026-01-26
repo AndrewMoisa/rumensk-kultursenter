@@ -1,0 +1,42 @@
+{
+  "HomePage": {
+    "title": "Next.js i18n Starter",
+    "welcome": "Velkommen til Next.js 15",
+    "description": "En moderne startmal med internasjonalisering, vakre UI-komponenter og typesikkerhet innebygd.",
+    "getStarted": "Kom i gang",
+    "learnMore": "Lær mer",
+    "features": {
+      "nextjs": {
+        "title": "Next.js 15",
+        "description": "Bygget på den nyeste Next.js med App Router og React 19 for optimal ytelse."
+      },
+      "i18n": {
+        "title": "Internasjonalisering",
+        "description": "Full i18n-støtte med next-intl for sømløse flerspråklige opplevelser."
+      },
+      "design": {
+        "title": "Vakkert design",
+        "description": "Tailwind CSS med tilpassede farger og Shadcn UI-komponenter for et polert utseende."
+      }
+    },
+    "footer": "Bygget med ❤️ ved hjelp av Next.js 15"
+  },
+  "AboutPage": {
+    "title": "Om dette prosjektet",
+    "backToHome": "← Tilbake til hjemmet",
+    "content": {
+      "paragraph1": "Denne startmalen demonstrerer kraften i å kombinere moderne webteknologier for å skape en rask, tilgjengelig og vedlikeholdbar applikasjon.",
+      "paragraph2": "Bygget med utvikleropplevelse i tankene, gir dette prosjektet et solid grunnlag for å bygge internasjonaliserte webapplikasjoner med beste praksis innebygd."
+    },
+    "techStack": {
+      "title": "Teknologistakk",
+      "items": {
+        "nextjs": "Next.js 15 med App Router og React 19",
+        "i18n": "next-intl v4+ for internasjonalisering",
+        "tailwind": "Tailwind CSS med tilpasset Navy, Gold og Ice palett",
+        "shadcn": "Shadcn UI-komponenter bygget på Radix UI",
+        "typescript": "Streng TypeScript for typesikkerhet"
+      }
+    }
+  }
+}

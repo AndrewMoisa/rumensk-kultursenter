@@ -1,0 +1,42 @@
+{
+  "HomePage": {
+    "title": "Next.js i18n Starter",
+    "welcome": "Welcome to Next.js 15",
+    "description": "A modern starter template with internationalization, beautiful UI components, and type safety built in.",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "features": {
+      "nextjs": {
+        "title": "Next.js 15",
+        "description": "Built on the latest Next.js with App Router and React 19 for optimal performance."
+      },
+      "i18n": {
+        "title": "Internationalization",
+        "description": "Full i18n support with next-intl for seamless multilingual experiences."
+      },
+      "design": {
+        "title": "Beautiful Design",
+        "description": "Tailwind CSS with custom colors and Shadcn UI components for a polished look."
+      }
+    },
+    "footer": "Built with ❤️ using Next.js 15"
+  },
+  "AboutPage": {
+    "title": "About This Project",
+    "backToHome": "← Back to Home",
+    "content": {
+      "paragraph1": "This starter template demonstrates the power of combining modern web technologies to create a fast, accessible, and maintainable application.",
+      "paragraph2": "Built with developer experience in mind, this project provides a solid foundation for building internationalized web applications with best practices baked in."
+    },
+    "techStack": {
+      "title": "Technology Stack",
+      "items": {
+        "nextjs": "Next.js 15 with App Router and React 19",
+        "i18n": "next-intl v4+ for internationalization",
+        "tailwind": "Tailwind CSS with custom Navy, Gold, and Ice palette",
+        "shadcn": "Shadcn UI components built on Radix UI",
+        "typescript": "Strict TypeScript for type safety"
+      }
+    }
+  }
+}
