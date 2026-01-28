@@ -2,14 +2,9 @@
 
 import { useParams } from 'next/navigation';
 import { useRouter, usePathname } from '@/i18n/routing';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { Globe } from 'lucide-react';
+import { Globe, ChevronDown } from 'lucide-react';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
+import { Button } from './ui/button';
 
 const languages = [
   { code: 'no', name: 'Norsk', flag: '🇳🇴' },
@@ -27,24 +22,31 @@ export default function LanguageSwitcher() {
     router.replace(pathname, { locale: newLocale });
   };
 
+  const currentLang = languages.find(lang => lang.code === currentLocale);
+
   return (
-    <div className="flex items-center gap-2">
-      <Globe className="h-5 w-5 text-gold" />
-      <Select value={currentLocale} onValueChange={handleLanguageChange}>
-        <SelectTrigger className="w-[140px] bg-white/10 border-gold/30 text-white hover:bg-white/20">
-          <SelectValue />
-        </SelectTrigger>
-        <SelectContent>
-          {languages.map((lang) => (
-            <SelectItem key={lang.code} value={lang.code}>
-              <span className="flex items-center gap-2">
-                <span>{lang.flag}</span>
-                <span>{lang.name}</span>
-              </span>
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-    </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="sm" className="gap-2 hover:bg-accent/20">
+          <Globe className="w-4 h-4 text-accent" />
+          <span className="hidden sm:inline text-sm uppercase">{currentLang?.code}</span>
+          <ChevronDown className="w-3 h-3" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {languages.map((lang) => (
+          <DropdownMenuItem
+            key={lang.code}
+            onClick={() => handleLanguageChange(lang.code)}
+            className={currentLocale === lang.code ? "bg-accent/20 text-accent" : ""}
+          >
+            <span className="flex items-center gap-2">
+              <span>{lang.flag}</span>
+              <span>{lang.name}</span>
+            </span>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
