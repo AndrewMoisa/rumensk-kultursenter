@@ -2,85 +2,41 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Button } from '@/components/ui/button';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { Header } from '@/components/header';
+import { Hero } from '@/components/hero';
+import { Members } from '@/components/member';
+import { Events } from '@/components/events';
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
 
   return (
-    <main className="min-h-screen bg-ice">
+    <main className="min-h-screen bg-gradient-to-br from-background via-blue-50/20 to-background">
       {/* Header */}
-      <header className="bg-navy text-white shadow-lg">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold">{t('title')}</h1>
-            <LanguageSwitcher />
-          </div>
-        </div>
-      </header>
+      < Header />
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl font-bold text-navy mb-6">
-            {t('welcome')}
-          </h2>
-          <p className="text-xl text-gray-700 mb-8">
-            {t('description')}
-          </p>
-          <div className="flex gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-navy hover:bg-navy/90 text-white"
-            >
-              {t('getStarted')}
-            </Button>
-            <Link href="/about">
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-navy text-navy hover:bg-navy hover:text-white"
-              >
-                {t('learnMore')}
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
-      {/* Features Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-navy">
-            <h3 className="text-2xl font-bold text-navy mb-4">
-              {t('features.nextjs.title')}
-            </h3>
-            <p className="text-gray-600">
-              {t('features.nextjs.description')}
-            </p>
-          </div>
-          <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-gold">
-            <h3 className="text-2xl font-bold text-gold mb-4">
-              {t('features.i18n.title')}
-            </h3>
-            <p className="text-gray-600">
-              {t('features.i18n.description')}
-            </p>
-          </div>
-          <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-navy">
-            <h3 className="text-2xl font-bold text-navy mb-4">
-              {t('features.design.title')}
-            </h3>
-            <p className="text-gray-600">
-              {t('features.design.description')}
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Members Section */}
+      <Members />
+
+      { /* Additional sections like Events, About, Contact can be added here */ }
+
+      < Events />
 
       {/* Footer */}
-      <footer className="bg-navy text-white py-8 mt-16">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gold">{t('footer')}</p>
+      <footer className="bg-gradient-to-br from-slate-900 via-primary to-slate-900 text-white py-12 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative">
+          <p className="text-accent text-lg font-medium">{t('footer')}</p>
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-accent"></div>
+            <p className="text-white/60 text-sm">Romanian Cultural Center</p>
+            <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-accent"></div>
+          </div>
         </div>
       </footer>
     </main>
