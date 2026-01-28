@@ -10,7 +10,7 @@
     --card-foreground: 210 100% 14%;
     --popover: 0 0% 100%;
     --popover-foreground: 210 100% 14%;
-    --primary: 210 100% 14%;
+    --primary: 200 100% 14%;
     --primary-foreground: 40 40% 96%;
     --secondary: 36 45% 57%;
     --secondary-foreground: 210 100% 14%;
@@ -65,5 +65,30 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .animate-fade-in-delayed {
+    animation: fadeIn 1s ease-out 0.3s both;
+  }
+  
+  .delay-700 {
+    animation-delay: 700ms;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
