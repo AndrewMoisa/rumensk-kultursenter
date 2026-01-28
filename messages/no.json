@@ -1,6 +1,21 @@
 {
   "HomePage": {
     "title": "Next.js i18n Starter",
+    "hero" : {
+      "heading": "Rumensk kultursenter i Norge",
+      "subheading": "Der tradisjon møter nordisk modernisme.",
+      "description": "Vi knytter den rumenske diasporaen i Norge sammen gjennom kulturelle arrangementer, språkkurs og samfunnsprogrammer. Bli med oss og feire vår rike kulturarv mens vi bygger broer mellom kulturer.",
+      "button": {
+        "events": "Kommende",
+        "courses": "Påmelding"
+      },
+      "dashboard": {
+        "years" : "Aktive år",
+        "members": "Medlemmer",
+        "events": "Årlige events"
+      }
+    },
+    
     "welcome": "Velkommen til Next.js 15",
     "description": "En moderne startmal med internasjonalisering, vakre UI-komponenter og typesikkerhet innebygd.",
     "getStarted": "Kom i gang",

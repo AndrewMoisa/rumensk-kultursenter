@@ -1,6 +1,20 @@
 {
   "HomePage": {
     "title": "Next.js i18n Starter",
+     "hero" : {
+      "heading": "Centrul Cultural Român în Norvegia",
+      "subheading": "Unde tradiția întâlnește modernismul nordic.",
+      "description": "Conectăm diaspora română din Norvegia prin evenimente culturale, cursuri de limbă și programe comunitare. Alăturați-vă nouă în celebrarea moștenirii noastre bogate, construind în același timp punți între culturi.",
+      "button": {
+        "events": "Evenimente",
+        "courses": "Înscriere"
+      },
+      "dashboard": {
+        "years" : "Ani activi",
+        "members": "Membri",
+        "events": "Evenimente anuale"
+      }
+    },
     "welcome": "Bine ați venit la Next.js 15",
     "description": "Un șablon de pornire modern cu internaționalizare, componente UI frumoase și siguranță de tip încorporată.",
     "getStarted": "Începe",
