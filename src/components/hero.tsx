@@ -1,0 +1,111 @@
+import { Button } from "@/components/ui/button"
+import { Calendar, BookOpen, ArrowRight } from "lucide-react"
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+
+
+
+export function Hero() {
+    const t = useTranslations('HomePage');
+
+  return (
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-br from-background via-blue-50/30 to-background">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#002147_1px,transparent_1px),linear-gradient(to_bottom,#002147_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.03]" />
+        <div className="absolute top-20 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse delay-700"></div>
+      </div>
+      {/* Decorative top border with gradient */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Content */}
+          <div className="space-y-8 animate-fade-in">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent/20 to-accent/10 backdrop-blur-sm px-5 py-2.5 rounded-full border border-accent/30">
+                <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                <p className="text-accent font-semibold tracking-wider uppercase text-sm">
+                  {t('hero.subheading')}
+                </p>
+              </div>
+              <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-primary leading-tight text-balance">
+                <span className="bg-gradient-to-r from-primary via-accent/80 to-primary bg-clip-text text-transparent">
+                  {t('hero.subheading')}
+                </span>
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
+                {t('hero.description')}
+              </p>
+            </div>
+
+            {/* Quick Action Buttons - The Golden Path */}
+            <div className="flex xs:flex-row gap-4 flex-wrap">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-primary to-primary/90 text-primary-foreground hover:from-primary/90 hover:to-primary/80 gap-2 h-14 px-8 text-base shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all hover:scale-105"
+              >
+                <Calendar className="w-5 h-5" />
+                {t('hero.button.events')}
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-accent text-accent hover:bg-accent hover:text-white gap-2 h-14 px-8 text-base bg-transparent backdrop-blur-sm hover:scale-105 transition-all"
+              >
+                <BookOpen className="w-5 h-5" />
+                {t('hero.button.courses')}
+              </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-accent/20">
+              <div className="group">
+                <p className="font-serif text-4xl md:text-5xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">5+</p>
+                <p className="text-sm text-muted-foreground mt-2">{t('hero.dashboard.years')}</p>
+              </div>
+              <div className="group">
+                <p className="font-serif text-4xl md:text-5xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">500+</p>
+                <p className="text-sm text-muted-foreground mt-2">{t('hero.dashboard.members')}</p>
+              </div>
+              <div className="group">
+                <p className="font-serif text-4xl md:text-5xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">100+</p>
+                <p className="text-sm text-muted-foreground mt-2">{t('hero.dashboard.events')}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Visual Element */}
+          <div className="relative lg:h-[600px] animate-fade-in-delayed">
+            <div className="relative h-full sm:w-[500px] mx-auto lg:mx-0 lg:w-full">
+              {/* Main Image Card */}
+              <div className="relative bg-card rounded-3xl shadow-2xl overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-full border border-accent/20 group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Image
+                    src="/images/hero.jpeg"
+                    alt="Romanian Cultural Center"
+                    fill
+                    className="object-cover rounded-3xl transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute top-6 right-6 w-24 h-24 border-2 border-accent/50 rounded-xl animate-pulse" />
+                <div className="absolute bottom-6 left-6 w-20 h-20 bg-gradient-to-br from-accent/30 to-primary/30 rounded-xl backdrop-blur-sm" />
+              </div>
+              
+              {/* Floating Card */}
+              <div className="absolute -bottom-4 -left-4 bg-gradient-to-br from-card to-card/95 backdrop-blur-md rounded-xl shadow-2xl p-5 border border-accent/30 hover:scale-105 transition-transform">
+                <p className="text-xs text-accent uppercase tracking-wider font-semibold">Next Event</p>
+                <p className="font-serif font-bold text-primary mt-1 text-lg">Romanian Film Night</p>
+                <p className="text-sm text-accent font-medium">Feb 15, 2026</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
