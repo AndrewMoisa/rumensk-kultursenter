@@ -1,0 +1,10 @@
+# robots.txt for Rumensk Kultursenter
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://rumensk-kultursenter.no/sitemap.xml
+
+# Disallow admin or private areas (if any in the future)
+# Disallow: /admin/

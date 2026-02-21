@@ -1,4 +1,12 @@
 {
+  "Header": {
+    "nav": {
+      "about": "About",
+      "events": "Events",
+      "contact": "Contact"
+    },
+    "brand": "Cultural Center"
+  },
   "HomePage": {
     "title": "Next.js i18n Starter",
      "hero" : {
@@ -35,6 +43,34 @@
     },
     "footer": "Built with ❤️ using Next.js 15"
   },
+  "About": {
+    "badge": "Our Values",
+    "heading": "Our Mission",
+    "description": "The Romanian Cultural Center in Norway is a vibrant community dedicated to preserving and promoting Romanian cultural heritage in the heart of Norway.",
+    "mission": {
+      "title": "What We Do",
+      "description": "We provide a welcoming space where Romanians and friends of Romanian culture can connect, learn, and celebrate together. From cultural events to language courses, we build bridges between our traditions and modern Norwegian life."
+    },
+    "values": {
+      "title": "Our Values",
+      "community": {
+        "title": "Community",
+        "description": "Building strong connections among Romanians in Norway"
+      },
+      "culture": {
+        "title": "Culture",
+        "description": "Keeping Romanian heritage alive for future generations"
+      },
+      "integration": {
+        "title": "Integration",
+        "description": "Supporting successful integration into Norwegian society"
+      },
+      "education": {
+        "title": "Education",
+        "description": "Providing valuable educational programs and resources"
+      }
+    }
+  },
   "AboutPage": {
     "title": "About This Project",
     "backToHome": "← Back to Home",
@@ -52,5 +88,95 @@
         "typescript": "Strict TypeScript for type safety"
       }
     }
+  },
+  "Members": {
+    "badge": "Membership",
+    "heading": "Join Our Cultural Community",
+    "description": "Become a member and enjoy exclusive benefits while supporting Romanian culture in Norway.",
+    "memberBenefits": "Member Benefits",
+    "button": "Become a Member",
+    "benefits": {
+      "restaurant": {
+        "title": "Transylvania Restaurant Access",
+        "description": "Exclusive access and special offers at our authentic Romanian restaurant."
+      },
+      "shop": {
+        "title": "Cultural Shop Benefits",
+        "description": "Member discounts on Romanian products, books, and traditional crafts."
+      },
+      "events": {
+        "title": "Community Events",
+        "description": "Free or discounted access to cultural events, workshops, and celebrations."
+      },
+      "language": {
+        "title": "Language Programs",
+        "description": "Priority enrollment and reduced rates for Romanian language courses."
+      }
+    },
+    "features": {
+      "restaurantShop": "Access to Transylvania Restaurant & Shop",
+      "programs": "Member-exclusive cultural programs",
+      "networking": "Networking opportunities",
+      "newsletter": "Monthly newsletter with community updates",
+      "preservation": "Support cultural preservation"
+    },
+    "pricing": {
+      "yearlyMembership": "Yearly Membership",
+      "currency": "NOK",
+      "yearlyBenefits": "Yearly exclusive benefits"
+    }
+  },
+  "Events": {
+    "badge": "What's Happening",
+    "heading": "Upcoming Events",
+    "description": "Join us for cultural celebrations, workshops, and community gatherings that bring together Romanian heritage and Norwegian hospitality.",
+    "event1": {
+      "title": "Adventure in Sirdal Program - Free Camps",
+      "description": "Themed camps (winter in January and summer on Children's Day) in Sirdal. Accommodation, educational activities in Romanian, team games, and nature survival workshops. Members have priority registration and free access.",
+      "day": "Biannual",
+      "date": "January & June",
+      "time": "Full weekend"
+    },
+    "event2": {
+      "title": "Living Heritage Workshops - Culture and Crafts",
+      "description": "Monthly themed sessions: Union (January), Brâncuși (February), Mărțișor (March). Creative workshops, interactive presentations about great Romanians, and artistic moments (dance, music). Children learn history in a playful way.",
+      "day": "Monthly",
+      "date": "Once a month",
+      "time": "Afternoon"
+    },
+    "event3": {
+      "title": "Integration Hub \"Navigating Norway\"",
+      "description": "Workshops on Norwegian CV, interviews, labor rights, tax system, and documentary screenings. Access to verified resources and network of professionals who help you avoid costly beginner mistakes.",
+      "day": "Periodic",
+      "date": "Group sessions",
+      "time": "Evening"
+    },
+    "event4": {
+      "title": "Healthy Community Program - Prevention",
+      "description": "Health education events: World Heart Day, healthy lifestyle in Nordic climate, moral support for newcomers. Lectures with specialists and active community support for everyone's well-being.",
+      "day": "Thematic",
+      "date": "Throughout the year",
+      "time": "Variable"
+    }
+  },
+  "Footer": {
+    "brand": {
+      "name": "RKN",
+      "subtitle": "Cultural Center",
+      "description": "Connecting the Romanian diaspora in Norway through cultural events, language courses, and community programs."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "aboutUs": "About Us",
+      "events": "Events",
+      "gallery": "Gallery"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "address": "Hanabakken 20, 4328 Sandnes, Norway",
+      "phone": "+47 462 37 328",
+      "email": "rumensk.kultursenter@gmail.com"
+    },
+    "copyright": "© 2026 Rumensk Kultursenter. All rights reserved."
   }
 }

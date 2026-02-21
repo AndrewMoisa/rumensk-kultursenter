@@ -1,4 +1,12 @@
 {
+  "Header": {
+    "nav": {
+      "about": "Om oss",
+      "events": "Arrangementer",
+      "contact": "Kontakt"
+    },
+    "brand": "Kultursenter"
+  },
   "HomePage": {
     "title": "Next.js i18n Starter",
     "hero" : {
@@ -36,6 +44,34 @@
     },
     "footer": "Bygget med ❤️ ved hjelp av Next.js 15"
   },
+  "About": {
+    "badge": "Oss verdier",
+    "heading": "Vårt oppdrag",
+    "description": "Det rumenske kultursenteret i Norge er et levende samfunn dedikert til å bevare og fremme rumensk kulturarv i hjertet av Norge.",
+    "mission": {
+      "title": "Hva vi gjør",
+      "description": "Vi tilbyr et imøtekommende sted hvor rumener og venner av rumensk kultur kan knytte kontakter, lære og feire sammen. Fra kulturelle arrangementer til språkkurs bygger vi broer mellom våre tradisjoner og det moderne norske livet."
+    },
+    "values": {
+      "title": "Våre verdier",
+      "community": {
+        "title": "Samfunn",
+        "description": "Bygge sterke forbindelser blant rumener i Norge"
+      },
+      "culture": {
+        "title": "Kultur",
+        "description": "Holde rumensk arv i live for fremtidige generasjoner"
+      },
+      "integration": {
+        "title": "Integrering",
+        "description": "Støtte vellykket integrering i det norske samfunnet"
+      },
+      "education": {
+        "title": "Utdanning",
+        "description": "Tilby verdifulle utdanningsprogrammer og ressurser"
+      }
+    }
+  },
   "AboutPage": {
     "title": "Om dette prosjektet",
     "backToHome": "← Tilbake til hjemmet",
@@ -53,5 +89,96 @@
         "typescript": "Streng TypeScript for typesikkerhet"
       }
     }
+  },
+  "Members": {
+    "badge": "Medlemskap",
+    "heading": "Bli med i vårt kulturelle fellesskap",
+    "description": "Bli medlem og nyt eksklusive fordeler samtidig som du støtter rumensk kultur i Norge.",
+    "memberBenefits": "Medlemsfordeler",
+    "button": "Bli medlem",
+    "benefits": {
+      "restaurant": {
+        "title": "Transylvania Restaurant-tilgang",
+        "description": "Eksklusiv tilgang og spesialtilbud på vår autentiske rumenske restaurant."
+      },
+      "shop": {
+        "title": "Kulturbutikk-fordeler",
+        "description": "Medlemsrabatter på rumenske produkter, bøker og tradisjonelt håndverk."
+      },
+      "events": {
+        "title": "Samfunnsarrangementer",
+        "description": "Gratis eller rabattert tilgang til kulturarrangementer, workshops og feiringer."
+      },
+      "language": {
+        "title": "Språkprogrammer",
+        "description": "Prioritert påmelding og reduserte priser for rumenske språkkurs."
+      }
+    },
+    "features": {
+      "restaurantShop": "Tilgang til Transylvania Restaurant & Butikk",
+      "programs": "Medlemseksklusive kulturprogrammer",
+      "networking": "Nettverksmuligheter",
+      "newsletter": "Månedlig nyhetsbrev med samfunnsoppdateringer",
+      "preservation": "Støtte kulturell bevaring"
+    },
+    "pricing": {
+      "yearlyMembership": "Årlig medlemskap",
+      "currency": "NOK",
+      "yearlyBenefits": "Årlige eksklusive fordeler"
+    }
+  },
+  "Events": {
+    "badge": "Hva skjer",
+    "heading": "Kommende arrangementer",
+    "description": "Bli med oss på kulturelle feiringer, verksteder og samfunnssamlinger som bringer sammen rumensk arv og norsk gjestfrihet.",
+    "event1": {
+      "title": "Eventyrprogrammet i Sirdal - Gratis leire",
+      "description": "Tematiske leire (vinter i januar og sommer på barnas dag) i Sirdal. Overnatting, pedagogiske aktiviteter på rumensk, lagspill og naturoverlevelsesverksteder. Medlemmer har prioritetsregistrering og gratis tilgang.",
+      "day": "Halvårlig",
+      "date": "Januar & Juni",
+      "time": "Hele helgen"
+    },
+    "event2": {
+      "title": "Levende arv verksteder - Kultur og håndverk",
+      "description": "Månedlige tematiske økter: Unionen (januar), Brâncuși (februar), Mărțișor (mars). Kreative verksteder, interaktive presentasjoner om store rumenske personligheter og kunstneriske øyeblikk (dans, musikk). Barn lærer historie på en leken måte.",
+      "day": "Månedlig",
+      "date": "En gang i måneden",
+      "time": "Ettermiddag"
+    },
+    "event3": {
+      "title": "Integreringshub \"Navigering i Norge\"",
+      "description": "Verksteder om norsk CV, intervjuer, arbeidsrettigheter, skattesystem og dokumentarvisninger. Tilgang til verifiserte ressurser og nettverk av fagfolk som hjelper deg å unngå kostbare nybegynnerfeil.",
+      "day": "Periodisk",
+      "date": "Gruppeøkter",
+      "time": "Kveld"
+    },
+    "event4": {
+      "title": "Sunn samfunnsprogram - Forebygging",
+      "description": "Helseopplysningsarrangementer: Verdens hjertedag, sunn livsstil i nordisk klima, moralsk støtte for nykommere. Forelesninger med spesialister og aktiv samfunnsstøtte for alles velvære.",
+      "day": "Tematisk",
+      "date": "Gjennom året",
+      "time": "Variabel"
+    }
+  
+  },
+  "Footer": {
+    "brand": {
+      "name": "RKN",
+      "subtitle": "Kultursenter",
+      "description": "Vi knytter den rumenske diasporaen i Norge sammen gjennom kulturelle arrangementer, språkkurs og samfunnsprogrammer."
+    },
+    "quickLinks": {
+      "title": "Hurtiglenker",
+      "aboutUs": "Om oss",
+      "events": "Arrangementer",
+      "gallery": "Galleri"
+    },
+    "contact": {
+      "title": "Kontakt oss",
+      "address": "Hanabakken 20, 4328 Sandnes, Norge",
+      "phone": "+47 462 37 328",
+      "email": "rumensk.kultursenter@gmail.com"
+    },
+    "copyright": "© 2026 Rumensk Kultursenter. Alle rettigheter reservert."
   }
 }

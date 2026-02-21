@@ -1,38 +1,37 @@
 import { Heart, Users, Globe2, Award, Check, Sparkles, UtensilsCrossed, ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-const benefits = [
-  {
-    icon: UtensilsCrossed,
-    title: "Transylvania Restaurant Access",
-    description: "Exclusive access and special offers at our authentic Romanian restaurant.",
-  },
-  {
-    icon: ShoppingBag,
-    title: "Cultural Shop Benefits",
-    description: "Member discounts on Romanian products, books, and traditional crafts.",
-  },
-  {
-    icon: Users,
-    title: "Community Events",
-    description: "Free or discounted access to cultural events, workshops, and celebrations.",
-  },
-  {
-    icon: Globe2,
-    title: "Language Programs",
-    description: "Priority enrollment and reduced rates for Romanian language courses.",
-  },
-]
-
-const features = [
-  "Access to Transylvania Restaurant & Shop",
-  "Member-exclusive cultural programs",
-  "Networking opportunities",
-  "Monthly newsletter with community updates",
-  "Support cultural preservation",
-]
+import { useTranslations } from "next-intl"
 
 export function Members() {
+  const t = useTranslations('Members')
+  
+  const benefits = [
+    {
+      title: t('benefits.restaurant.title'),
+      description: t('benefits.restaurant.description'),
+    },
+    {
+      title: t('benefits.shop.title'),
+      description: t('benefits.shop.description'),
+    },
+    {
+      title: t('benefits.events.title'),
+      description: t('benefits.events.description'),
+    },
+    {
+      title: t('benefits.language.title'),
+      description: t('benefits.language.description'),
+    },
+  ]
+
+  const features = [
+    t('features.restaurantShop'),
+    t('features.programs'),
+    t('features.networking'),
+    t('features.newsletter'),
+    t('features.preservation'),
+  ]
+
   return (
     <section id="members" className="py-12 md:py-16 bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground relative overflow-hidden">
       {/* Decorative elements */}
@@ -47,14 +46,14 @@ export function Members() {
           <div className="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
             <Sparkles className="w-4 h-4 text-accent" />
             <span className="text-accent font-medium tracking-wider uppercase text-sm">
-              Membership
+              {t('badge')}
             </span>
           </div>
           <h2 className="font-serif text-3xl md:text-4xl font-bold leading-tight mb-4">
-            Join Our Cultural Community
+            {t('heading')}
           </h2>
           <p className="text-primary-foreground/80 leading-relaxed">
-            Become a member and enjoy exclusive benefits while supporting Romanian culture in Norway.
+            {t('description')}
           </p>
         </div>
 
@@ -64,7 +63,7 @@ export function Members() {
             {/* Features List */}
             <div className="p-6 md:p-8">
               <h3 className="font-serif text-xl md:text-2xl font-bold mb-4">
-                Member Benefits
+                {t('memberBenefits')}
               </h3>
               <ul className="space-y-3">
                 {features.map((feature, index) => (
@@ -85,24 +84,26 @@ export function Members() {
               <div className="space-y-4">
                 <div>
                   <p className="text-xs text-primary-foreground/70 uppercase tracking-wider mb-2">
-                    Yearly Membership
+                    {t('pricing.yearlyMembership')}
                   </p>
                   <div className="flex items-baseline gap-2 mb-3">
                     <span className="text-4xl font-bold text-accent">300</span>
-                    <span className="text-xl text-primary-foreground/80">NOK</span>
+                    <span className="text-xl text-primary-foreground/80">{t('pricing.currency')}</span>
                   </div>
                   <p className="text-primary-foreground/70 text-sm">
-                    Yearly exclusive benefits
+                    {t('pricing.yearlyBenefits')}
                   </p>
                 </div>
 
                 <div className="space-y-2">
-                  <Button 
-                    size="default" 
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2 h-10 px-8 text-base"
-                  >
-                    Become a Member
-                  </Button>
+                  <a href="https://docs.google.com/forms/d/1G6JYT71NjkrplMG7v_FyIM1-lLrhix0d9on6ENDX1R8" target="_blank" rel="noopener noreferrer" className="block">
+                    <Button 
+                      size="default" 
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2 h-10 px-8 text-base"
+                    >
+                      {t('button')}
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>

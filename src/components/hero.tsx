@@ -1,7 +1,9 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
-import { Calendar, BookOpen, ArrowRight } from "lucide-react"
-import { useTranslations } from "next-intl";
-import Image from "next/image";
+import { Calendar, ArrowRight } from "lucide-react"
+import { useTranslations } from "next-intl"
+import Image from "next/image"
 
 
 
@@ -31,7 +33,7 @@ export function Hero() {
               </div>
               <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-primary leading-tight text-balance">
                 <span className="bg-gradient-to-r from-primary via-accent/80 to-primary bg-clip-text text-transparent">
-                  {t('hero.subheading')}
+                  {t('hero.heading')}
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
@@ -44,18 +46,12 @@ export function Hero() {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-primary to-primary/90 text-primary-foreground hover:from-primary/90 hover:to-primary/80 gap-2 h-14 px-8 text-base shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all hover:scale-105"
+                onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                aria-label="View upcoming events"
               >
                 <Calendar className="w-5 h-5" />
                 {t('hero.button.events')}
                 <ArrowRight className="w-4 h-4" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-accent text-accent hover:bg-accent hover:text-white gap-2 h-14 px-8 text-base bg-transparent backdrop-blur-sm hover:scale-105 transition-all"
-              >
-                <BookOpen className="w-5 h-5" />
-                {t('hero.button.courses')}
               </Button>
             </div>
 
@@ -91,17 +87,10 @@ export function Hero() {
                   />
                 </div>
                 
-                {/* Decorative elements */}
-                <div className="absolute top-6 right-6 w-24 h-24 border-2 border-accent/50 rounded-xl animate-pulse" />
-                <div className="absolute bottom-6 left-6 w-20 h-20 bg-gradient-to-br from-accent/30 to-primary/30 rounded-xl backdrop-blur-sm" />
+               
               </div>
               
-              {/* Floating Card */}
-              <div className="absolute -bottom-4 -left-4 bg-gradient-to-br from-card to-card/95 backdrop-blur-md rounded-xl shadow-2xl p-5 border border-accent/30 hover:scale-105 transition-transform">
-                <p className="text-xs text-accent uppercase tracking-wider font-semibold">Next Event</p>
-                <p className="font-serif font-bold text-primary mt-1 text-lg">Romanian Film Night</p>
-                <p className="text-sm text-accent font-medium">Feb 15, 2026</p>
-              </div>
+              
             </div>
           </div>
         </div>

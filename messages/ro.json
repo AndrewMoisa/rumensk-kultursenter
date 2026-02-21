@@ -1,4 +1,12 @@
 {
+  "Header": {
+    "nav": {
+      "about": "Despre noi",
+      "events": "Evenimente",
+      "contact": "Contact"
+    },
+    "brand": "Centru Cultural"
+  },
   "HomePage": {
     "title": "Next.js i18n Starter",
      "hero" : {
@@ -35,22 +43,122 @@
     },
     "footer": "Construit cu ❤️ folosind Next.js 15"
   },
-  "AboutPage": {
-    "title": "Despre acest proiect",
-    "backToHome": "← Înapoi la pagina principală",
-    "content": {
-      "paragraph1": "Acest șablon de pornire demonstrează puterea combinării tehnologiilor web moderne pentru a crea o aplicație rapidă, accesibilă și ușor de întreținut.",
-      "paragraph2": "Construit având în vedere experiența dezvoltatorului, acest proiect oferă o bază solidă pentru construirea aplicațiilor web internaționale cu cele mai bune practici încorporate."
+  "About": {
+    "badge": "Despre noi",
+    "heading": "Misiunea noastră",
+    "description": "Centrul Cultural Românesc din Norvegia este o comunitate vibrantă dedicată păstrării și promovării moștenirii culturale românești în inima Norvegiei.",
+    "mission": {
+      "title": "Ce facem",
+      "description": "Oferim un spațiu primitor unde românii și prietenii culturii românești se pot conecta, învăța și celebra împreună. De la evenimente culturale la cursuri de limbă, creăm punți între tradițiile noastre și viața modernă norvegiană."
     },
-    "techStack": {
-      "title": "Stiva tehnologică",
-      "items": {
-        "nextjs": "Next.js 15 cu App Router și React 19",
-        "i18n": "next-intl v4+ pentru internaționalizare",
-        "tailwind": "Tailwind CSS cu paletă personalizată Navy, Gold și Ice",
-        "shadcn": "Componente Shadcn UI construite pe Radix UI",
-        "typescript": "TypeScript strict pentru siguranța tipului"
+    "values": {
+      "title": "Valorile noastre",
+      "community": {
+        "title": "Comunitate",
+        "description": "Construim legături puternice între români din Norvegia"
+      },
+      "culture": {
+        "title": "Cultură",
+        "description": "Păstrăm vie moștenirea românească pentru generațiile viitoare"
+      },
+      "integration": {
+        "title": "Integrare",
+        "description": "Sprijinim integrarea cu succes în societatea norvegiană"
+      },
+      "education": {
+        "title": "Educație",
+        "description": "Oferim programe educaționale și resurse valoroase"
       }
     }
+  },
+  "Members": {
+    "badge": "Membru",
+    "heading": "Alăturați-vă comunității noastre culturale",
+    "description": "Deveniți membru și bucurați-vă de beneficii exclusive în timp ce susțineți cultura română în Norvegia.",
+    "memberBenefits": "Beneficii pentru membri",
+    "button": "Deveniți membru",
+    "benefits": {
+      "restaurant": {
+        "title": "Acces la Restaurantul Transylvania",
+        "description": "Acces exclusiv și oferte speciale la restaurantul nostru autentic românesc."
+      },
+      "shop": {
+        "title": "Beneficii la Magazinul Cultural",
+        "description": "Reduceri pentru membri la produse românești, cărți și meșteșuguri tradiționale."
+      },
+      "events": {
+        "title": "Evenimente comunitare",
+        "description": "Acces gratuit sau la preț redus la evenimente culturale, ateliere și celebrări."
+      },
+      "language": {
+        "title": "Programe de limbă",
+        "description": "Înregistrare prioritară și tarife reduse pentru cursurile de limba română."
+      }
+    },
+    "features": {
+      "restaurantShop": "Acces la Restaurantul Transylvania & Magazin",
+      "programs": "Programe culturale exclusive pentru membri",
+      "networking": "Oportunități de networking",
+      "newsletter": "Abonament lunar cu actualizări comunitare",
+      "preservation": "Sprijiniți păstrarea culturii"
+    },
+    "pricing": {
+      "yearlyMembership": "Membri anual",
+      "currency": "NOK",
+      "yearlyBenefits": "Beneficii exclusive anuale"
+    }
+  },
+  "Events": {
+    "badge": "Ce se întâmplă",
+    "heading": "Evenimente viitoare",
+    "description": "Alăturați-vă nouă pentru celebrări culturale, ateliere și adunări comunitare care reunesc moștenirea românească și ospitalitatea norvegiană.",
+    "event1": {
+      "title": "Programul \"Aventură în Sirdal\" - Tabere gratuite",
+      "description": "Tabere tematice (iarna în ianuarie și vara de Ziua Copilului) în Sirdal. Cazare, activități educative în limba română, jocuri de echipă și ateliere de supraviețuire în natură. Membrii au prioritate la înscriere și acces gratuit.",
+      "day": "Semestrială",
+      "date": "Ianuarie & Iunie",
+      "time": "Weekend complet"
+    },
+    "event2": {
+      "title": "Atelierele \"Moștenirea Vie\" - Cultură și lucru manual",
+      "description": "Sesiuni lunare tematice: Unirea (ianuarie), Brâncuși (februarie), Mărțișor (martie). Ateliere de creație, prezentări interactive despre marii români și momente artistice (dans, muzică). Copiii învață istoria într-un mod ludic.",
+      "day": "Lunar",
+      "date": "O dată pe lună",
+      "time": "După-amiaza"
+    },
+    "event3": {
+      "title": "Hub-ul de integrare \"Navigând în Norvegia\"",
+      "description": "Workshop-uri despre CV norvegian, interviuri, drepturi de muncă, sistemul de taxe și proiecții de filme documentare. Acces la resurse verificate și rețea de profesioniști care te ajută să eviți greșelile costisitoare de început.",
+      "day": "Periodic",
+      "date": "Sesiuni de grup",
+      "time": "Seara"
+    },
+    "event4": {
+      "title": "Programul \"Comunitate sănătoasă\" - Prevenție",
+      "description": "Evenimente de educație sanitară: Ziua Mondială a Inimii, stil de viață sănătos în climatul nordic, sprijin moral pentru noii veniți. Prelegeri cu specialiști și suport comunitar activ pentru bunăstarea tuturor.",
+      "day": "Tematic",
+      "date": "Pe parcursul anului",
+      "time": "Variabil"
+    }
+  },
+  "Footer": {
+    "brand": {
+      "name": "RKN",
+      "subtitle": "Centrul Cultural",
+      "description": "Conectăm diaspora română din Norvegia prin evenimente culturale, cursuri de limbă și programe comunitare."
+    },
+    "quickLinks": {
+      "title": "Legături rapide",
+      "aboutUs": "Valorile noastre",
+      "events": "Evenimente",
+      "gallery": "Galerie"
+    },
+    "contact": {
+      "title": "Contactează-ne",
+      "address": "Hanabakken 20, 4328 Sandnes, Norvegia",
+      "phone": "+47 462 37 328",
+      "email": "rumensk.kultursenter@gmail.com"
+    },
+    "copyright": "© 2026 Rumensk Kultursenter. Toate drepturile rezervate."
   }
 }
