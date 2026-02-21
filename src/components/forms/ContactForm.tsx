@@ -162,7 +162,7 @@ export function ContactForm({ onSuccess, locale = 'en' }: ContactFormProps) {
       {/* Status Messages */}
       {submitStatus === 'success' && (
         <div className="rounded-md bg-green-50 p-4 text-sm text-green-800">
-          ✓ Message sent successfully! We'll get back to you soon.
+          ✓ Message sent successfully! We&apos;ll get back to you soon.
         </div>
       )}
       {submitStatus === 'error' && (
