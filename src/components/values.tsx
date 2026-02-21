@@ -40,13 +40,7 @@ export function Values() {
 
   return (
     <section className="py-16 md:py-24 bg-background relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -right-20 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 -left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse delay-700"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent/20 to-accent/10 backdrop-blur-sm px-5 py-2.5 rounded-full border border-accent/30 mb-4">

@@ -16,9 +16,9 @@ export function Footer() {
   return (
     <footer id="contact" className="bg-primary text-primary-foreground overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {/* Brand */}
-          <div className={`lg:col-span-1 transition-all duration-700 `}>
+          <div className={`transition-all duration-700 `}>
             <div className="flex items-center gap-3 mb-6 group">
               <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                 <span className="font-serif font-bold text-lg text-primary">R</span>
@@ -69,8 +69,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className={`mt-16 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4 transition-all duration-700 delay-500`}>
-          <p className="text-primary-foreground/60 text-sm">
+        <div className={`mt-16 pt-8 border-t border-primary-foreground/10 flex justify-center items-center transition-all duration-700 delay-500`}>
+          <p className="text-primary-foreground/60 text-sm text-center">
             {t('copyright')}
           </p>
         </div>

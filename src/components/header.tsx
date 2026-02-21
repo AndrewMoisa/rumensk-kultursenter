@@ -35,8 +35,8 @@ export function Header() {
               />
             </div>
             <div className="hidden sm:block">
-              <p className="font-serif text-lg md:text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight">RKS</p>
-              <p className="text-xs text-muted-foreground leading-tight">{t('brand')}</p>
+              <p className="font-serif text-lg md:text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight">Rumensk</p>
+              <p className="text-xs text-muted-foreground leading-tight">Kultursenter</p>
             </div>
           </Link>
 
