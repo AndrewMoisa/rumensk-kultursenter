@@ -16,7 +16,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://rumensk-kultursenter.no'),
   title: {
-    default: "Rumensk Kultursenter | Romanian Cultural Center in Norway",
+    default: "Rumensk Kultursenter | Sandnes",
     template: "%s | Rumensk Kultursenter"
   },
   description: "Connecting the Romanian diaspora in Norway through cultural events, language courses, and community programs. Join us in celebrating our rich heritage while building bridges between cultures.",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US', 'ro_RO'],
     url: 'https://rumensk-kultursenter.no',
     siteName: 'Rumensk Kultursenter',
-    title: 'Rumensk Kultursenter | Romanian Cultural Center in Norway',
+    title: 'Rumensk Kultursenter | Sandnes',
     description: 'Connecting the Romanian diaspora in Norway through cultural events, language courses, and community programs.',
     images: [
       {
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rumensk Kultursenter | Romanian Cultural Center in Norway',
+    title: 'Rumensk Kultursenter | Sandnes',
     description: 'Connecting the Romanian diaspora in Norway through cultural events, language courses, and community programs.',
     images: ['/images/logo/logov2.png'],
   },
