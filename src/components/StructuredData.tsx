@@ -1,10 +1,8 @@
-"use client"
+interface StructuredDataProps {
+  locale: string
+}
 
-import { useParams } from 'next/navigation'
-
-export function StructuredData() {
-  const params = useParams()
-  const locale = params.locale as string
+export function StructuredData({ locale }: StructuredDataProps) {
   
   const organizationData = {
     "@context": "https://schema.org",

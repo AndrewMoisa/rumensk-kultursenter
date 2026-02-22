@@ -1,4 +1,6 @@
-import { Heart, Users, Globe2, Award, Check, Sparkles, UtensilsCrossed, ShoppingBag } from "lucide-react"
+"use client"
+
+import { Check, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
 

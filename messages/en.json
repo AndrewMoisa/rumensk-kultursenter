@@ -5,10 +5,10 @@
       "events": "Events",
       "contact": "Contact"
     },
-    "brand": "Cultural Center"
+    "brand": "Cultural Center",
+    "joinUs": "Join Us"
   },
   "HomePage": {
-    "title": "Next.js i18n Starter",
      "hero" : {
       "heading": "Romanian Cultural Center in Norway",
       "subheading": "Where Tradition Meets Nordic Modernism",
@@ -68,24 +68,6 @@
       "education": {
         "title": "Education",
         "description": "Providing valuable educational programs and resources"
-      }
-    }
-  },
-  "AboutPage": {
-    "title": "About This Project",
-    "backToHome": "← Back to Home",
-    "content": {
-      "paragraph1": "This starter template demonstrates the power of combining modern web technologies to create a fast, accessible, and maintainable application.",
-      "paragraph2": "Built with developer experience in mind, this project provides a solid foundation for building internationalized web applications with best practices baked in."
-    },
-    "techStack": {
-      "title": "Technology Stack",
-      "items": {
-        "nextjs": "Next.js 15 with App Router and React 19",
-        "i18n": "next-intl v4+ for internationalization",
-        "tailwind": "Tailwind CSS with custom Navy, Gold, and Ice palette",
-        "shadcn": "Shadcn UI components built on Radix UI",
-        "typescript": "Strict TypeScript for type safety"
       }
     }
   },

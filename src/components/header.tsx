@@ -61,7 +61,7 @@ export function Header() {
             {/* Desktop CTA */}
             <Link href="https://docs.google.com/forms/d/1G6JYT71NjkrplMG7v_FyIM1-lLrhix0d9on6ENDX1R8" target="_blank" rel="noopener noreferrer">
               <Button className="hidden md:flex bg-gradient-to-r from-primary to-primary/90 text-primary-foreground hover:from-primary/90 hover:to-primary/80 shadow-md hover:shadow-lg transition-all hover:scale-105">
-                Join Us
+                {t('joinUs')}
               </Button>
             </Link>
 
@@ -88,7 +88,7 @@ export function Header() {
                   ))}
                   <Link href="https://docs.google.com/forms/d/1G6JYT71NjkrplMG7v_FyIM1-lLrhix0d9on6ENDX1R8" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                     <Button className="mt-4 w-full bg-primary text-primary-foreground hover:bg-primary/80">
-                      Join Us
+                      {t('joinUs')}
                     </Button>
                   </Link>
                 </div>

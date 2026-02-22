@@ -66,14 +66,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    // Add Google Search Console verification code here when available
-    // google: 'your-verification-code',
-  },
   icons: {
     icon: [
-      { url: '/favicon.ico' },
-      { url: '/images/favicon.ico', type: 'image/x-icon' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
     ],
     shortcut: '/favicon.ico',
     apple: '/images/logo/logov2.png',
@@ -105,7 +100,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className="antialiased">
-        <StructuredData />
+        <StructuredData locale={locale} />
         <ErrorBoundary>
           <NextIntlClientProvider messages={messages}>
             {children}

@@ -1,6 +1,7 @@
 'use client';
 
-import { useParams, usePathname as useNextPathname } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import { useRouter, usePathname } from '@/i18n/routing';
 import { Globe, ChevronDown } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 import { Button } from './ui/button';
@@ -9,20 +10,19 @@ const languages = [
   { code: 'no', name: 'Norsk', flag: '🇳🇴' },
   { code: 'en', name: 'English', flag: '🇬🇧' },
   { code: 'ro', name: 'Română', flag: '🇷🇴' },
-];
+] as const;
 
 export default function LanguageSwitcher() {
   const params = useParams();
-  const nextPathname = useNextPathname();
+  const router = useRouter();
+  const pathname = usePathname();
   const currentLocale = params.locale as string;
 
   const handleLanguageChange = (newLocale: string) => {
-    // Get the current pathname without locale prefix
-    const pathWithoutLocale = nextPathname.replace(`/${currentLocale}`, '');
-    const hash = window.location.hash;
-    
-    // Navigate to the new locale
-    window.location.href = `/${newLocale}${pathWithoutLocale}${hash}`;
+    router.replace(
+      { pathname: pathname || '/' },
+      { locale: newLocale as 'no' | 'en' | 'ro' }
+    );
   };
 
   const currentLang = languages.find(lang => lang.code === currentLocale);
