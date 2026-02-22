@@ -43,7 +43,7 @@ export function Events() {
       day: t('event4.day'),
       date: t('event4.date'),
       time: t('event4.time'),
-      image: "/images/events/adulti.jpg",
+      image: "/images/events/ziuaro.jpg",
     },
   ]
   
