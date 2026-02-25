@@ -40,7 +40,7 @@ export default function EventsTab({
 
   return (
     <Card className="border-border/50 shadow-xl">
-      <CardContent className="p-6">
+      <CardContent className="p-4 sm:p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-serif text-xl font-semibold text-primary">
             {t("dashboard.events.title")}

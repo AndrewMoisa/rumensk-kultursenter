@@ -148,6 +148,14 @@
       "thisMonth": "Denne måneden",
       "pending": "Venter",
       "loading": "Laster data...",
+      "viewSite": "Vis nettside",
+      "siteLinks": {
+        "home": "Hjem",
+        "store": "Butikk",
+        "events": "Arrangementer",
+        "join": "Bli medlem",
+        "contact": "Kontakt"
+      },
       "membersList": "Medlemsliste",
       "noMembers": "Ingen medlemmer ennå.",
       "table": {
@@ -177,6 +185,7 @@
         "changeImage": "Endre bilde...",
         "save": "Lagre",
         "cancel": "Avbryt",
+        "edit": "Rediger",
         "actions": "Handlinger",
         "noProducts": "Ingen produkter enn\u00e5. Legg til ditt f\u00f8rste produkt!"
       },

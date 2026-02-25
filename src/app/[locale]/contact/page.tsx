@@ -125,11 +125,8 @@ export default function ContactPage() {
                             type="text"
                             placeholder={t("form.namePlaceholder")}
                             required
-                            className={`h-11 border-border focus-visible:ring-accent ${state.fieldErrors?.name ? 'border-destructive' : ''}`}
+                            className="h-11 border-border focus-visible:ring-accent"
                           />
-                          {state.fieldErrors?.name && (
-                            <p className="text-xs text-destructive">{state.fieldErrors.name[0]}</p>
-                          )}
                         </div>
                         <div className="space-y-2">
                           <label htmlFor="email" className="text-sm font-medium text-foreground">
@@ -141,11 +138,8 @@ export default function ContactPage() {
                             type="email"
                             placeholder={t("form.emailPlaceholder")}
                             required
-                            className={`h-11 border-border focus-visible:ring-accent ${state.fieldErrors?.email ? 'border-destructive' : ''}`}
+                            className="h-11 border-border focus-visible:ring-accent"
                           />
-                          {state.fieldErrors?.email && (
-                            <p className="text-xs text-destructive">{state.fieldErrors.email[0]}</p>
-                          )}
                         </div>
                       </div>
 
@@ -158,11 +152,8 @@ export default function ContactPage() {
                           name="subject"
                           type="text"
                           placeholder={t("form.subjectPlaceholder")}
-                          className={`h-11 border-border focus-visible:ring-accent ${state.fieldErrors?.subject ? 'border-destructive' : ''}`}
+                          className="h-11 border-border focus-visible:ring-accent"
                         />
-                        {state.fieldErrors?.subject && (
-                          <p className="text-xs text-destructive">{state.fieldErrors.subject[0]}</p>
-                        )}
                       </div>
 
                       <div className="space-y-2">
@@ -175,11 +166,8 @@ export default function ContactPage() {
                           rows={5}
                           placeholder={t("form.messagePlaceholder")}
                           required
-                          className={`flex w-full rounded-md border border-border bg-transparent px-3 py-2 text-base md:text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent resize-none ${state.fieldErrors?.message ? 'border-destructive' : ''}`}
+                          className="flex w-full rounded-md border border-border bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent resize-none"
                         />
-                        {state.fieldErrors?.message && (
-                          <p className="text-xs text-destructive">{state.fieldErrors.message[0]}</p>
-                        )}
                       </div>
 
                       {state.error && (

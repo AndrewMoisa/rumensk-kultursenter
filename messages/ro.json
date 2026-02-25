@@ -131,6 +131,8 @@
       "badge": "Admin",
       "heading": "Panou de administrare",
       "description": "Introdu parola de admin pentru a continua",
+      "email": "Email",
+      "emailPlaceholder": "admin@email.com",
       "password": "Parolă",
       "passwordPlaceholder": "Parola de admin",
       "button": "Autentificare",
@@ -145,6 +147,14 @@
       "thisMonth": "Luna aceasta",
       "pending": "În așteptare",
       "loading": "Se încarcă datele...",
+      "viewSite": "Vezi site-ul",
+      "siteLinks": {
+        "home": "Acasă",
+        "store": "Magazin",
+        "events": "Evenimente",
+        "join": "Alătură-te",
+        "contact": "Contact"
+      },
       "membersList": "Lista membrilor",
       "noMembers": "Niciun membru încă.",
       "table": {
@@ -174,6 +184,7 @@
         "changeImage": "Schimbă imaginea...",
         "save": "Salvează",
         "cancel": "Anulează",
+        "edit": "Editează",
         "actions": "Acțiuni",
         "noProducts": "Niciun produs încă. Adaugă primul tău produs!"
       },

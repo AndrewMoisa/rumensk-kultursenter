@@ -166,6 +166,14 @@
       "thisMonth": "This Month",
       "pending": "Pending",
       "loading": "Loading data...",
+      "viewSite": "View Site",
+      "siteLinks": {
+        "home": "Home",
+        "store": "Store",
+        "events": "Events",
+        "join": "Join Us",
+        "contact": "Contact"
+      },
       "membersList": "Members List",
       "noMembers": "No members yet.",
       "table": {
@@ -195,6 +203,7 @@
         "changeImage": "Change image...",
         "save": "Save",
         "cancel": "Cancel",
+        "edit": "Edit",
         "actions": "Actions",
         "noProducts": "No products yet. Add your first product!"
       },
