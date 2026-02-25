@@ -14,11 +14,10 @@ export function useStore() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [inquiryErrors, setInquiryErrors] = useState<Record<string, string[]>>({})
 
-  const supabase = createClient()
-
   const loadProducts = useCallback(async () => {
     setLoading(true)
     setLoadError(null)
+    const supabase = createClient()
     const { data, error } = await supabase
       .from("products")
       .select("*")
@@ -30,7 +29,7 @@ export function useStore() {
       setProducts(data)
     }
     setLoading(false)
-  }, [supabase])
+  }, [])
 
   useEffect(() => {
     loadProducts()
@@ -62,6 +61,7 @@ export function useStore() {
 
     setIsSubmitting(true)
 
+    const supabase = createClient()
     const { error } = await supabase.from("product_inquiries").insert({
       product_id: selectedProduct?.id,
       product_name: selectedProduct?.name,

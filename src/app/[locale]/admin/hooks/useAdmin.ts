@@ -25,11 +25,10 @@ export function useAdmin() {
   const [editingProduct, setEditingProduct] = useState<Product | null>(null)
   const [editFileName, setEditFileName] = useState<string | null>(null)
 
-  const supabase = createClient()
-
   // --- Data Loading ---
 
   const loadApplications = useCallback(async () => {
+    const supabase = createClient()
     const { data, error } = await supabase
       .from('membership_applications')
       .select('*')
@@ -38,9 +37,10 @@ export function useAdmin() {
     if (!error && data) {
       setApplications(data)
     }
-  }, [supabase])
+  }, [])
 
   const loadProducts = useCallback(async () => {
+    const supabase = createClient()
     const { data, error } = await supabase
       .from('products')
       .select('*')
@@ -49,9 +49,10 @@ export function useAdmin() {
     if (!error && data) {
       setProducts(data)
     }
-  }, [supabase])
+  }, [])
 
   const loadInquiries = useCallback(async () => {
+    const supabase = createClient()
     const { data, error } = await supabase
       .from('product_inquiries')
       .select('*')
@@ -60,9 +61,10 @@ export function useAdmin() {
     if (!error && data) {
       setInquiries(data)
     }
-  }, [supabase])
+  }, [])
 
   const loadContacts = useCallback(async () => {
+    const supabase = createClient()
     const { data, error } = await supabase
       .from('contact_messages')
       .select('*')
@@ -71,9 +73,10 @@ export function useAdmin() {
     if (!error && data) {
       setContacts(data)
     }
-  }, [supabase])
+  }, [])
 
   const loadEvents = useCallback(async () => {
+    const supabase = createClient()
     const { data, error } = await supabase
       .from('events')
       .select('*')
@@ -82,17 +85,18 @@ export function useAdmin() {
     if (!error && data) {
       setEvents(data)
     }
-  }, [supabase])
+  }, [])
 
   // --- Session ---
 
   useEffect(() => {
+    const supabase = createClient()
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         setIsAuthenticated(true)
       }
     })
-  }, [supabase])
+  }, [])
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -121,6 +125,7 @@ export function useAdmin() {
     const email = formData.get("email") as string
     const password = formData.get("password") as string
 
+    const supabase = createClient()
     const { error: authError } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -136,6 +141,7 @@ export function useAdmin() {
   }
 
   async function handleLogout() {
+    const supabase = createClient()
     await supabase.auth.signOut()
     setIsAuthenticated(false)
     setApplications([])
@@ -148,6 +154,7 @@ export function useAdmin() {
   const paidCount = applications.filter(a => a.status === 'paid').length
 
   async function handleStatusChange(id: string, newStatus: string) {
+    const supabase = createClient()
     const { error } = await supabase
       .from('membership_applications')
       .update({ status: newStatus })
@@ -175,6 +182,7 @@ export function useAdmin() {
     const price = parseFloat(formData.get("productPrice") as string)
     const file = formData.get("productImage") as File | null
 
+    const supabase = createClient()
     let image_url: string | null = null
 
     if (file && file.size > 0) {
@@ -221,6 +229,7 @@ export function useAdmin() {
     const price = parseFloat(formData.get("editPrice") as string)
     const file = formData.get("editImage") as File | null
 
+    const supabase = createClient()
     let image_url = editingProduct.image_url
 
     if (file && file.size > 0) {
@@ -256,6 +265,7 @@ export function useAdmin() {
   }
 
   async function handleDeleteProduct(id: string) {
+    const supabase = createClient()
     const { error } = await supabase
       .from('products')
       .delete()
@@ -278,6 +288,7 @@ export function useAdmin() {
     const time = (formData.get("eventTime") as string) || null
     const file = formData.get("eventImage") as File | null
 
+    const supabase = createClient()
     let image_url: string | null = null
 
     if (file && file.size > 0) {
@@ -328,6 +339,7 @@ export function useAdmin() {
     const time = (formData.get("editTime") as string) || null
     const file = formData.get("editImage") as File | null
 
+    const supabase = createClient()
     let image_url = editingEvent.image_url
 
     if (file && file.size > 0) {
@@ -363,6 +375,7 @@ export function useAdmin() {
   }
 
   async function handleDeleteEvent(id: string) {
+    const supabase = createClient()
     const { error } = await supabase
       .from('events')
       .delete()
@@ -374,6 +387,7 @@ export function useAdmin() {
   }
 
   async function handleDeleteContact(id: string) {
+    const supabase = createClient()
     const { error } = await supabase
       .from('contact_messages')
       .delete()
@@ -385,6 +399,7 @@ export function useAdmin() {
   }
 
   async function handleDeleteInquiry(id: string) {
+    const supabase = createClient()
     const { error } = await supabase
       .from('product_inquiries')
       .delete()
