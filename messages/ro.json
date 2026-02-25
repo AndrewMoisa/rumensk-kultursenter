@@ -122,6 +122,69 @@
       "time": "Variabil"
     }
   },
+  "Admin": {
+    "login": {
+      "backHome": "Înapoi acasă",
+      "badge": "Admin",
+      "heading": "Panou de administrare",
+      "description": "Introdu parola de admin pentru a continua",
+      "password": "Parolă",
+      "passwordPlaceholder": "Parola de admin",
+      "button": "Autentificare",
+      "loading": "Se autentifică...",
+      "error": "Parolă incorectă"
+    },
+    "dashboard": {
+      "heading": "Panou de administrare",
+      "description": "Gestionează cererile de membru",
+      "logout": "Deconectare",
+      "totalMembers": "Total membri",
+      "thisMonth": "Luna aceasta",
+      "pending": "În așteptare",
+      "membersList": "Lista membrilor",
+      "noMembers": "Niciun membru încă.",
+      "table": {
+        "name": "Nume",
+        "email": "Email",
+        "phone": "Telefon",
+        "status": "Status",
+        "date": "Data"
+      },
+      "statuses": {
+        "pending": "În așteptare",
+        "approved": "Aprobat",
+        "rejected": "Respins"
+      }
+    }
+  },
+  "JoinUs": {
+    "backHome": "Înapoi acasă",
+    "badge": "Membru",
+    "heading": "Devino membru",
+    "description": "Completează formularul de mai jos pentru a aplica pentru calitatea de membru în comunitatea noastră culturală.",
+    "fields": {
+      "firstName": "Prenume",
+      "firstNamePlaceholder": "Prenumele tău",
+      "lastName": "Nume",
+      "lastNamePlaceholder": "Numele tău",
+      "email": "Email",
+      "emailPlaceholder": "email@exemplu.com",
+      "phone": "Telefon (opțional)",
+      "phonePlaceholder": "+47 000 00 000",
+      "message": "Mesaj (opțional)",
+      "messagePlaceholder": "Spune-ne de ce vrei să te alături..."
+    },
+    "form": {
+      "button": "Trimite cererea",
+      "loading": "Se trimite..."
+    },
+    "success": {
+      "heading": "Cerere primită!",
+      "description": "Mulțumim pentru interes! Vom analiza cererea ta și te vom contacta în curând.",
+      "backHome": "Înapoi acasă"
+    },
+    "alreadyMember": "Ești deja membru?"
+  },
   "Footer": {
     "brand": {
       "name": "RKN",

@@ -141,6 +141,71 @@
       "time": "Variable"
     }
   },
+  "Admin": {
+    "login": {
+      "backHome": "Back to home",
+      "badge": "Admin",
+      "heading": "Admin Dashboard",
+      "description": "Enter admin credentials to continue",
+      "email": "Email",
+      "emailPlaceholder": "admin@email.com",
+      "password": "Password",
+      "passwordPlaceholder": "Admin password",
+      "button": "Log In",
+      "loading": "Logging in...",
+      "error": "Incorrect password"
+    },
+    "dashboard": {
+      "heading": "Admin Dashboard",
+      "description": "Manage membership applications",
+      "logout": "Log Out",
+      "totalMembers": "Total Members",
+      "thisMonth": "This Month",
+      "pending": "Pending",
+      "membersList": "Members List",
+      "noMembers": "No members yet.",
+      "table": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "status": "Status",
+        "date": "Date"
+      },
+      "statuses": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected"
+      }
+    }
+  },
+  "JoinUs": {
+    "backHome": "Back to home",
+    "badge": "Membership",
+    "heading": "Become a Member",
+    "description": "Fill in the form below to apply for membership in our cultural community.",
+    "fields": {
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Your last name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone (optional)",
+      "phonePlaceholder": "+47 000 00 000",
+      "message": "Message (optional)",
+      "messagePlaceholder": "Tell us why you'd like to join..."
+    },
+    "form": {
+      "button": "Submit Application",
+      "loading": "Submitting..."
+    },
+    "success": {
+      "heading": "Application Received!",
+      "description": "Thank you for your interest! We will review your application and get back to you soon.",
+      "backHome": "Back to Home"
+    },
+    "alreadyMember": "Already a member?"
+  },
   "Footer": {
     "brand": {
       "name": "RKN",

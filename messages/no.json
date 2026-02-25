@@ -123,6 +123,71 @@
     }
   
   },
+  "Admin": {
+    "login": {
+      "backHome": "Tilbake til forsiden",
+      "badge": "Admin",
+      "heading": "Administrasjonspanel",
+      "description": "Skriv inn admin-legitimasjon for \u00e5 fortsette",
+      "email": "E-post",
+      "emailPlaceholder": "admin@epost.no",
+      "password": "Passord",
+      "passwordPlaceholder": "Admin-passord",
+      "button": "Logg inn",
+      "loading": "Logger inn...",
+      "error": "Feil passord"
+    },
+    "dashboard": {
+      "heading": "Administrasjonspanel",
+      "description": "Administrer medlemssøknader",
+      "logout": "Logg ut",
+      "totalMembers": "Totalt medlemmer",
+      "thisMonth": "Denne måneden",
+      "pending": "Venter",
+      "membersList": "Medlemsliste",
+      "noMembers": "Ingen medlemmer ennå.",
+      "table": {
+        "name": "Navn",
+        "email": "E-post",
+        "phone": "Telefon",
+        "status": "Status",
+        "date": "Dato"
+      },
+      "statuses": {
+        "pending": "Venter",
+        "approved": "Godkjent",
+        "rejected": "Avvist"
+      }
+    }
+  },
+  "JoinUs": {
+    "backHome": "Tilbake til forsiden",
+    "badge": "Medlemskap",
+    "heading": "Bli medlem",
+    "description": "Fyll ut skjemaet nedenfor for å søke om medlemskap i vårt kulturelle fellesskap.",
+    "fields": {
+      "firstName": "Fornavn",
+      "firstNamePlaceholder": "Ditt fornavn",
+      "lastName": "Etternavn",
+      "lastNamePlaceholder": "Ditt etternavn",
+      "email": "E-post",
+      "emailPlaceholder": "din@epost.no",
+      "phone": "Telefon (valgfritt)",
+      "phonePlaceholder": "+47 000 00 000",
+      "message": "Melding (valgfritt)",
+      "messagePlaceholder": "Fortell oss hvorfor du vil bli med..."
+    },
+    "form": {
+      "button": "Send søknad",
+      "loading": "Sender..."
+    },
+    "success": {
+      "heading": "Søknad mottatt!",
+      "description": "Takk for din interesse! Vi vil gjennomgå søknaden din og kontakte deg snart.",
+      "backHome": "Tilbake til forsiden"
+    },
+    "alreadyMember": "Allerede medlem?"
+  },
   "Footer": {
     "brand": {
       "name": "RKN",
