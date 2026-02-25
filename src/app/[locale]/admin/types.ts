@@ -23,6 +23,10 @@ export interface Inquiry {
   product_name: string | null
   customer_name: string
   customer_email: string
+  phone: string | null
+  address: string | null
+  city: string | null
+  postal_code: string | null
   message: string | null
   created_at: string
 }

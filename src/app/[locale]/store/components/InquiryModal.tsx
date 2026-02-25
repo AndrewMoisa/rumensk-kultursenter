@@ -28,10 +28,10 @@ export default function InquiryModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <Card className="w-full max-w-md border-border/50 shadow-2xl relative">
+      <Card className="w-full max-w-md border-border/50 shadow-2xl relative max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1 rounded-full hover:bg-muted transition-colors"
+          className="absolute top-4 right-4 p-1 rounded-full hover:bg-muted transition-colors z-10"
         >
           <X className="w-5 h-5 text-muted-foreground" />
         </button>
@@ -94,6 +94,82 @@ export default function InquiryModal({
                   {inquiryErrors?.email && (
                     <p className="text-xs text-destructive">{inquiryErrors.email[0]}</p>
                   )}
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="inquiry-phone" className="text-sm font-medium text-foreground">
+                    {t("inquiry.phone")}
+                  </label>
+                  <Input
+                    id="inquiry-phone"
+                    name="phone"
+                    type="tel"
+                    placeholder={t("inquiry.phonePlaceholder")}
+                    className={`h-11 border-border focus-visible:ring-accent ${inquiryErrors?.phone ? 'border-destructive' : ''}`}
+                  />
+                  {inquiryErrors?.phone && (
+                    <p className="text-xs text-destructive">{inquiryErrors.phone[0]}</p>
+                  )}
+                </div>
+
+                {/* Delivery Address Section */}
+                <div className="border-t border-border/50 pt-4">
+                  <p className="text-sm font-semibold text-foreground mb-3">{t("inquiry.deliveryHeading")}</p>
+
+                  <div className="space-y-3">
+                    <div className="space-y-2">
+                      <label htmlFor="inquiry-address" className="text-sm font-medium text-foreground">
+                        {t("inquiry.address")}
+                      </label>
+                      <Input
+                        id="inquiry-address"
+                        name="address"
+                        type="text"
+                        placeholder={t("inquiry.addressPlaceholder")}
+                        required
+                        className={`h-11 border-border focus-visible:ring-accent ${inquiryErrors?.address ? 'border-destructive' : ''}`}
+                      />
+                      {inquiryErrors?.address && (
+                        <p className="text-xs text-destructive">{inquiryErrors.address[0]}</p>
+                      )}
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="space-y-2">
+                        <label htmlFor="inquiry-postal" className="text-sm font-medium text-foreground">
+                          {t("inquiry.postalCode")}
+                        </label>
+                        <Input
+                          id="inquiry-postal"
+                          name="postalCode"
+                          type="text"
+                          placeholder={t("inquiry.postalCodePlaceholder")}
+                          required
+                          className={`h-11 border-border focus-visible:ring-accent ${inquiryErrors?.postalCode ? 'border-destructive' : ''}`}
+                        />
+                        {inquiryErrors?.postalCode && (
+                          <p className="text-xs text-destructive">{inquiryErrors.postalCode[0]}</p>
+                        )}
+                      </div>
+
+                      <div className="space-y-2">
+                        <label htmlFor="inquiry-city" className="text-sm font-medium text-foreground">
+                          {t("inquiry.city")}
+                        </label>
+                        <Input
+                          id="inquiry-city"
+                          name="city"
+                          type="text"
+                          placeholder={t("inquiry.cityPlaceholder")}
+                          required
+                          className={`h-11 border-border focus-visible:ring-accent ${inquiryErrors?.city ? 'border-destructive' : ''}`}
+                        />
+                        {inquiryErrors?.city && (
+                          <p className="text-xs text-destructive">{inquiryErrors.city[0]}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="space-y-2">

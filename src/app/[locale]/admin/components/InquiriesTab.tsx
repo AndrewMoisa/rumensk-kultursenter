@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useTranslations } from "next-intl"
-import { Trash2, ChevronDown, ChevronUp } from "lucide-react"
+import { Trash2, ChevronDown, ChevronUp, MapPin, Phone } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import type { Inquiry } from "../types"
@@ -63,11 +63,36 @@ export default function InquiriesTab({ inquiries, onDeleteInquiry }: InquiriesTa
                   {isExpanded && (
                     <div className="border-t border-border/50 p-3 sm:p-4 bg-muted/20">
                       <div className="flex flex-col sm:flex-row sm:items-start gap-3">
-                        <div className="flex-1 min-w-0">
-                          <p className="text-xs font-medium text-muted-foreground mb-1.5">{t("dashboard.inquiries.message")}</p>
-                          <p className="text-sm text-foreground whitespace-pre-wrap break-words leading-relaxed">
-                            {inq.message || '—'}
-                          </p>
+                        <div className="flex-1 min-w-0 space-y-3">
+                          {/* Phone */}
+                          {inq.phone && (
+                            <div className="flex items-center gap-2">
+                              <Phone className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0" />
+                              <span className="text-sm text-foreground">{inq.phone}</span>
+                            </div>
+                          )}
+
+                          {/* Delivery Address */}
+                          {(inq.address || inq.city || inq.postal_code) && (
+                            <div className="flex items-start gap-2">
+                              <MapPin className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0 mt-0.5" />
+                              <div className="text-sm text-foreground">
+                                {inq.address && <p>{inq.address}</p>}
+                                {(inq.postal_code || inq.city) && (
+                                  <p>{[inq.postal_code, inq.city].filter(Boolean).join(' ')}</p>
+                                )}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Message */}
+                          <div>
+                            <p className="text-xs font-medium text-muted-foreground mb-1.5">{t("dashboard.inquiries.message")}</p>
+                            <p className="text-sm text-foreground whitespace-pre-wrap break-words leading-relaxed">
+                              {inq.message || '—'}
+                            </p>
+                          </div>
+
                           <p className="text-xs text-muted-foreground mt-2 sm:hidden">
                             {new Date(inq.created_at).toLocaleDateString()}
                           </p>

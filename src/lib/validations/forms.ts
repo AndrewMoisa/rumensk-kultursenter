@@ -60,6 +60,25 @@ export const inquirySchema = z.object({
   email: z
     .string()
     .email("Please enter a valid email address"),
+  phone: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .refine((val) => !val || /^\+?\d{8,15}$/.test(val.replace(/\s/g, "")), {
+      message: "Please enter a valid phone number",
+    }),
+  address: z
+    .string()
+    .min(3, "Address must be at least 3 characters")
+    .max(200, "Address must be less than 200 characters"),
+  city: z
+    .string()
+    .min(2, "City must be at least 2 characters")
+    .max(100, "City must be less than 100 characters"),
+  postalCode: z
+    .string()
+    .min(3, "Postal code must be at least 3 characters")
+    .max(10, "Postal code must be less than 10 characters"),
   message: z
     .string()
     .max(2000, "Message must be less than 2000 characters")

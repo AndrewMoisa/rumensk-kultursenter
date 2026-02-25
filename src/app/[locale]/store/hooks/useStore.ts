@@ -43,6 +43,10 @@ export function useStore() {
     const raw = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
+      phone: (formData.get("phone") as string) || '',
+      address: formData.get("address") as string,
+      city: formData.get("city") as string,
+      postalCode: formData.get("postalCode") as string,
       message: (formData.get("message") as string) || '',
     }
 
@@ -67,6 +71,10 @@ export function useStore() {
       product_name: selectedProduct?.name,
       customer_name: result.data.name,
       customer_email: result.data.email,
+      phone: result.data.phone || null,
+      address: result.data.address,
+      city: result.data.city,
+      postal_code: result.data.postalCode,
       message: result.data.message || null,
     })
 
