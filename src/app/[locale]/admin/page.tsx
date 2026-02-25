@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Link } from "@/i18n/routing"
-import { ShoppingBag, MessageSquare } from "lucide-react"
+import { ShoppingBag, MessageSquare, Mail, Calendar } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
@@ -12,6 +12,8 @@ import AdminLogin from "./components/AdminLogin"
 import MembersTab from "./components/MembersTab"
 import ProductsTab from "./components/ProductsTab"
 import InquiriesTab from "./components/InquiriesTab"
+import ContactsTab from "./components/ContactsTab"
+import EventsTab from "./components/EventsTab"
 
 export default function AdminPage() {
   const t = useTranslations('Admin')
@@ -85,8 +87,28 @@ export default function AdminPage() {
           </Card>
         </div>
 
+        {/* Loading / Error State */}
+        {admin.dataLoading && (
+          <Card className="border-border/50 shadow-xl">
+            <CardContent className="p-12 text-center">
+              <div className="w-8 h-8 border-3 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-muted-foreground">{t("dashboard.loading")}</p>
+            </CardContent>
+          </Card>
+        )}
+
+        {admin.dataError && (
+          <Card className="border-destructive/50 shadow-xl">
+            <CardContent className="p-8 text-center">
+              <p className="text-destructive font-medium">{admin.dataError}</p>
+            </CardContent>
+          </Card>
+        )}
+
+        {!admin.dataLoading && !admin.dataError && (
+        <>
         {/* Tabs */}
-        <div className="flex gap-2 mb-8">
+        <div className="flex gap-2 mb-8 flex-wrap">
           <Button
             variant={admin.activeTab === "members" ? "default" : "outline"}
             onClick={() => admin.setActiveTab("members")}
@@ -112,6 +134,32 @@ export default function AdminPage() {
             {admin.inquiries.length > 0 && (
               <span className="ml-2 bg-accent/20 text-accent text-xs font-bold px-1.5 py-0.5 rounded-full">
                 {admin.inquiries.length}
+              </span>
+            )}
+          </Button>
+          <Button
+            variant={admin.activeTab === "contacts" ? "default" : "outline"}
+            onClick={() => admin.setActiveTab("contacts")}
+            className={admin.activeTab === "contacts" ? "bg-gradient-to-r from-primary to-primary/90 text-primary-foreground" : ""}
+          >
+            <Mail className="w-4 h-4 mr-2" />
+            {t("dashboard.contacts.title")}
+            {admin.contacts.length > 0 && (
+              <span className="ml-2 bg-accent/20 text-accent text-xs font-bold px-1.5 py-0.5 rounded-full">
+                {admin.contacts.length}
+              </span>
+            )}
+          </Button>
+          <Button
+            variant={admin.activeTab === "events" ? "default" : "outline"}
+            onClick={() => admin.setActiveTab("events")}
+            className={admin.activeTab === "events" ? "bg-gradient-to-r from-primary to-primary/90 text-primary-foreground" : ""}
+          >
+            <Calendar className="w-4 h-4 mr-2" />
+            {t("dashboard.events.title")}
+            {admin.events.length > 0 && (
+              <span className="ml-2 bg-accent/20 text-accent text-xs font-bold px-1.5 py-0.5 rounded-full">
+                {admin.events.length}
               </span>
             )}
           </Button>
@@ -143,7 +191,30 @@ export default function AdminPage() {
         )}
 
         {admin.activeTab === "inquiries" && (
-          <InquiriesTab inquiries={admin.inquiries} />
+          <InquiriesTab inquiries={admin.inquiries} onDeleteInquiry={admin.handleDeleteInquiry} />
+        )}
+
+        {admin.activeTab === "contacts" && (
+          <ContactsTab contacts={admin.contacts} onDeleteContact={admin.handleDeleteContact} />
+        )}
+
+        {admin.activeTab === "events" && (
+          <EventsTab
+            events={admin.events}
+            showAddEvent={admin.showAddEvent}
+            setShowAddEvent={admin.setShowAddEvent}
+            eventFileName={admin.eventFileName}
+            setEventFileName={admin.setEventFileName}
+            editingEvent={admin.editingEvent}
+            setEditingEvent={admin.setEditingEvent}
+            editEventFileName={admin.editEventFileName}
+            setEditEventFileName={admin.setEditEventFileName}
+            onAddEvent={admin.handleAddEvent}
+            onEditEvent={admin.handleEditEvent}
+            onDeleteEvent={admin.handleDeleteEvent}
+          />
+        )}
+        </>
         )}
       </div>
     </main>

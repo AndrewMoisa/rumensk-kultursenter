@@ -94,6 +94,8 @@
     "badge": "Hva skjer",
     "heading": "Kommende arrangementer",
     "description": "Bli med oss på kulturelle feiringer, verksteder og samfunnssamlinger som bringer sammen rumensk arv og norsk gjestfrihet.",
+    "noEvents": "Ingen kommende arrangementer for øyeblikket. Kom tilbake snart!",
+    "viewAll": "Se alle arrangementer",
     "event1": {
       "title": "Eventyrprogrammet i Sirdal - Gratis leire",
       "description": "Tematiske leire (vinter i januar og sommer på barnas dag) i Sirdal. Overnatting, pedagogiske aktiviteter på rumensk, lagspill og naturoverlevelsesverksteder. Medlemmer har prioritetsregistrering og gratis tilgang.",
@@ -145,6 +147,7 @@
       "totalMembers": "Totalt medlemmer",
       "thisMonth": "Denne måneden",
       "pending": "Venter",
+      "loading": "Laster data...",
       "membersList": "Medlemsliste",
       "noMembers": "Ingen medlemmer ennå.",
       "table": {
@@ -185,6 +188,36 @@
         "message": "Melding",
         "date": "Dato",
         "noInquiries": "Ingen foresp\u00f8rsler enn\u00e5."
+      },
+      "contacts": {
+        "title": "Meldinger",
+        "name": "Navn",
+        "email": "E-post",
+        "subject": "Emne",
+        "message": "Melding",
+        "date": "Dato",
+        "noContacts": "Ingen meldinger ennå."
+      },
+      "events": {
+        "title": "Arrangementer",
+        "add": "Legg til arrangement",
+        "name": "Tittel",
+        "namePlaceholder": "Arrangementstittel",
+        "description": "Beskrivelse",
+        "descriptionPlaceholder": "Kort beskrivelse av arrangementet...",
+        "day": "Dag",
+        "dayPlaceholder": "f.eks. Hver lørdag",
+        "date": "Dato",
+        "datePlaceholder": "f.eks. Januar 2025",
+        "time": "Tid",
+        "timePlaceholder": "f.eks. 10:00 - 12:00",
+        "image": "Arrangementsbilde",
+        "chooseFile": "Velg bilde...",
+        "changeImage": "Endre bilde...",
+        "save": "Lagre",
+        "cancel": "Avbryt",
+        "actions": "Handlinger",
+        "noEvents": "Ingen arrangementer ennå. Legg til ditt første arrangement!"
       }
     }
   },
@@ -236,6 +269,34 @@
       "successHeading": "Foresp\u00f8rsel sendt!",
       "successDescription": "Takk for din interesse! Vi vil kontakte deg snart.",
       "close": "Lukk"
+    }
+  },
+  "Contact": {
+    "badge": "Ta kontakt",
+    "heading": "Kontakt oss",
+    "description": "Har du et sp\u00f8rsm\u00e5l eller vil du vite mer om v\u00e5rt fellesskap? Vi h\u00f8rer gjerne fra deg.",
+    "info": {
+      "address": "Adresse",
+      "phone": "Telefon",
+      "email": "E-post"
+    },
+    "form": {
+      "heading": "Send oss en melding",
+      "name": "Ditt navn",
+      "namePlaceholder": "Fullt navn",
+      "email": "E-post",
+      "emailPlaceholder": "din@epost.no",
+      "subject": "Emne (valgfritt)",
+      "subjectPlaceholder": "Hva gjelder det?",
+      "message": "Melding",
+      "messagePlaceholder": "Skriv meldingen din her...",
+      "button": "Send melding",
+      "loading": "Sender..."
+    },
+    "success": {
+      "heading": "Melding sendt!",
+      "description": "Takk for at du tok kontakt. Vi vil svare deg s\u00e5 snart som mulig.",
+      "backHome": "Tilbake til forsiden"
     }
   },
   "Footer": {

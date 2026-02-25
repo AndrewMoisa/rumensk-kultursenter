@@ -3,12 +3,14 @@
 import { useActionState } from "react"
 import { Link } from "@/i18n/routing"
 import Image from "next/image"
-import { Sparkles, ArrowLeft, Send } from "lucide-react"
+import { Sparkles, Send } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useTranslations } from "next-intl"
 import { submitMemberApplication, type JoinFormState } from "./actions"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 export default function JoinPage() {
   const t = useTranslations('JoinUs')
@@ -17,22 +19,16 @@ export default function JoinPage() {
   const [state, formAction, isPending] = useActionState(submitMemberApplication, initialState)
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-background via-blue-50/20 to-background flex items-center justify-center px-4 py-12">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-      </div>
+    <>
+      <Header />
+      <main className="min-h-screen bg-gradient-to-br from-background via-blue-50/20 to-background flex items-center justify-center px-4 pt-28 pb-12">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        </div>
 
-      <div className="w-full max-w-md relative z-10">
-        {/* Back to home */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8 group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          {t('backHome')}
-        </Link>
+        <div className="w-full max-w-md relative z-10">
 
         <Card className="border-border/50 shadow-2xl">
           <CardContent className="p-8">
@@ -93,8 +89,11 @@ export default function JoinPage() {
                       type="text"
                       placeholder={t('fields.firstNamePlaceholder')}
                       required
-                      className="h-11 border-border focus-visible:ring-accent"
+                      className={`h-11 border-border focus-visible:ring-accent ${state.fieldErrors?.firstName ? 'border-destructive' : ''}`}
                     />
+                    {state.fieldErrors?.firstName && (
+                      <p className="text-xs text-destructive">{state.fieldErrors.firstName[0]}</p>
+                    )}
                   </div>
 
                   <div className="space-y-2">
@@ -107,8 +106,11 @@ export default function JoinPage() {
                       type="text"
                       placeholder={t('fields.lastNamePlaceholder')}
                       required
-                      className="h-11 border-border focus-visible:ring-accent"
+                      className={`h-11 border-border focus-visible:ring-accent ${state.fieldErrors?.lastName ? 'border-destructive' : ''}`}
                     />
+                    {state.fieldErrors?.lastName && (
+                      <p className="text-xs text-destructive">{state.fieldErrors.lastName[0]}</p>
+                    )}
                   </div>
                 </div>
 
@@ -122,8 +124,11 @@ export default function JoinPage() {
                     type="email"
                     placeholder={t('fields.emailPlaceholder')}
                     required
-                    className="h-11 border-border focus-visible:ring-accent"
+                    className={`h-11 border-border focus-visible:ring-accent ${state.fieldErrors?.email ? 'border-destructive' : ''}`}
                   />
+                  {state.fieldErrors?.email && (
+                    <p className="text-xs text-destructive">{state.fieldErrors.email[0]}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -135,8 +140,11 @@ export default function JoinPage() {
                     name="phone"
                     type="tel"
                     placeholder={t('fields.phonePlaceholder')}
-                    className="h-11 border-border focus-visible:ring-accent"
+                    className={`h-11 border-border focus-visible:ring-accent ${state.fieldErrors?.phone ? 'border-destructive' : ''}`}
                   />
+                  {state.fieldErrors?.phone && (
+                    <p className="text-xs text-destructive">{state.fieldErrors.phone[0]}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -148,8 +156,11 @@ export default function JoinPage() {
                     name="message"
                     placeholder={t('fields.messagePlaceholder')}
                     rows={3}
-                    className="flex w-full rounded-md border border-border bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent resize-none"
+                    className={`flex w-full rounded-md border border-border bg-transparent px-3 py-2 text-base md:text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent resize-none ${state.fieldErrors?.message ? 'border-destructive' : ''}`}
                   />
+                  {state.fieldErrors?.message && (
+                    <p className="text-xs text-destructive">{state.fieldErrors.message[0]}</p>
+                  )}
                 </div>
 
                 {state.error && (
@@ -177,7 +188,9 @@ export default function JoinPage() {
             )}
           </CardContent>
         </Card>
-      </div>
-    </main>
+        </div>
+      </main>
+      <Footer />
+    </>
   )
 }

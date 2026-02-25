@@ -27,4 +27,24 @@ export interface Inquiry {
   created_at: string
 }
 
-export type AdminTab = "members" | "products" | "inquiries"
+export interface ContactMessage {
+  id: string
+  name: string
+  email: string
+  subject: string | null
+  message: string
+  created_at: string
+}
+
+export interface Event {
+  id: string
+  title: string
+  description: string | null
+  day: string | null
+  date: string | null
+  time: string | null
+  image_url: string | null
+  created_at: string
+}
+
+export type AdminTab = "members" | "products" | "inquiries" | "contacts" | "events"

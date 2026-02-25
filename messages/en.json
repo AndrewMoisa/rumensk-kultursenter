@@ -113,6 +113,8 @@
     "badge": "What's Happening",
     "heading": "Upcoming Events",
     "description": "Join us for cultural celebrations, workshops, and community gatherings that bring together Romanian heritage and Norwegian hospitality.",
+    "noEvents": "No upcoming events at the moment. Check back soon!",
+    "viewAll": "View All Events",
     "event1": {
       "title": "Adventure in Sirdal Program - Free Camps",
       "description": "Themed camps (winter in January and summer on Children's Day) in Sirdal. Accommodation, educational activities in Romanian, team games, and nature survival workshops. Members have priority registration and free access.",
@@ -163,6 +165,7 @@
       "totalMembers": "Total Members",
       "thisMonth": "This Month",
       "pending": "Pending",
+      "loading": "Loading data...",
       "membersList": "Members List",
       "noMembers": "No members yet.",
       "table": {
@@ -203,6 +206,36 @@
         "message": "Message",
         "date": "Date",
         "noInquiries": "No inquiries yet."
+      },
+      "contacts": {
+        "title": "Messages",
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message",
+        "date": "Date",
+        "noContacts": "No messages yet."
+      },
+      "events": {
+        "title": "Events",
+        "add": "Add Event",
+        "name": "Title",
+        "namePlaceholder": "Event title",
+        "description": "Description",
+        "descriptionPlaceholder": "Short description of the event...",
+        "day": "Day",
+        "dayPlaceholder": "e.g. Every Saturday",
+        "date": "Date",
+        "datePlaceholder": "e.g. January 2025",
+        "time": "Time",
+        "timePlaceholder": "e.g. 10:00 - 12:00",
+        "image": "Event Image",
+        "chooseFile": "Choose image...",
+        "changeImage": "Change image...",
+        "save": "Save",
+        "cancel": "Cancel",
+        "actions": "Actions",
+        "noEvents": "No events yet. Add your first event!"
       }
     }
   },
@@ -254,6 +287,34 @@
       "successHeading": "Inquiry Sent!",
       "successDescription": "Thank you for your interest! We will get back to you soon.",
       "close": "Close"
+    }
+  },
+  "Contact": {
+    "badge": "Get in Touch",
+    "heading": "Contact Us",
+    "description": "Have a question or want to learn more about our community? We'd love to hear from you.",
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "form": {
+      "heading": "Send us a Message",
+      "name": "Your Name",
+      "namePlaceholder": "Full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Subject (optional)",
+      "subjectPlaceholder": "What is this about?",
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "button": "Send Message",
+      "loading": "Sending..."
+    },
+    "success": {
+      "heading": "Message Sent!",
+      "description": "Thank you for reaching out. We will get back to you as soon as possible.",
+      "backHome": "Back to Home"
     }
   },
   "Footer": {

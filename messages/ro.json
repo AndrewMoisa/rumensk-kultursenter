@@ -94,6 +94,8 @@
     "badge": "Ce se întâmplă",
     "heading": "Evenimente viitoare",
     "description": "Alăturați-vă nouă pentru celebrări culturale, ateliere și adunări comunitare care reunesc moștenirea românească și ospitalitatea norvegiană.",
+    "noEvents": "Niciun eveniment în acest moment. Reveniți curând!",
+    "viewAll": "Vezi toate evenimentele",
     "event1": {
       "title": "Programul \"Aventură în Sirdal\" - Tabere gratuite",
       "description": "Tabere tematice (iarna în ianuarie și vara de Ziua Copilului) în Sirdal. Cazare, activități educative în limba română, jocuri de echipă și ateliere de supraviețuire în natură. Membrii au prioritate la înscriere și acces gratuit.",
@@ -142,6 +144,7 @@
       "totalMembers": "Total membri",
       "thisMonth": "Luna aceasta",
       "pending": "În așteptare",
+      "loading": "Se încarcă datele...",
       "membersList": "Lista membrilor",
       "noMembers": "Niciun membru încă.",
       "table": {
@@ -182,6 +185,36 @@
         "message": "Mesaj",
         "date": "Data",
         "noInquiries": "Nicio întrebare încă."
+      },
+      "contacts": {
+        "title": "Mesaje",
+        "name": "Nume",
+        "email": "Email",
+        "subject": "Subiect",
+        "message": "Mesaj",
+        "date": "Data",
+        "noContacts": "Niciun mesaj încă."
+      },
+      "events": {
+        "title": "Evenimente",
+        "add": "Adaugă eveniment",
+        "name": "Titlu",
+        "namePlaceholder": "Titlul evenimentului",
+        "description": "Descriere",
+        "descriptionPlaceholder": "Scurtă descriere a evenimentului...",
+        "day": "Zi",
+        "dayPlaceholder": "ex. În fiecare sâmbătă",
+        "date": "Data",
+        "datePlaceholder": "ex. Ianuarie 2025",
+        "time": "Ora",
+        "timePlaceholder": "ex. 10:00 - 12:00",
+        "image": "Imagine eveniment",
+        "chooseFile": "Alege imagine...",
+        "changeImage": "Schimbă imaginea...",
+        "save": "Salvează",
+        "cancel": "Anulează",
+        "actions": "Acțiuni",
+        "noEvents": "Niciun eveniment încă. Adaugă primul tău eveniment!"
       }
     }
   },
@@ -233,6 +266,34 @@
       "successHeading": "\u00centrebare trimis\u0103!",
       "successDescription": "Mul\u021bumim pentru interes! V\u0103 vom contacta \u00een cur\u00e2nd.",
       "close": "\u00cenchide"
+    }
+  },
+  "Contact": {
+    "badge": "Contacteaz\u0103-ne",
+    "heading": "Contact",
+    "description": "Ai o \u00eentrebare sau vrei s\u0103 afli mai multe despre comunitatea noastr\u0103? Ne-ar face pl\u0103cere s\u0103 auzim de la tine.",
+    "info": {
+      "address": "Adres\u0103",
+      "phone": "Telefon",
+      "email": "Email"
+    },
+    "form": {
+      "heading": "Trimite-ne un mesaj",
+      "name": "Numele t\u0103u",
+      "namePlaceholder": "Numele complet",
+      "email": "Email",
+      "emailPlaceholder": "email@exemplu.com",
+      "subject": "Subiect (op\u021bional)",
+      "subjectPlaceholder": "Despre ce este vorba?",
+      "message": "Mesaj",
+      "messagePlaceholder": "Scrie mesajul t\u0103u aici...",
+      "button": "Trimite mesajul",
+      "loading": "Se trimite..."
+    },
+    "success": {
+      "heading": "Mesaj trimis!",
+      "description": "Mul\u021bumim c\u0103 ne-ai contactat. \u00ce\u021bi vom r\u0103spunde c\u00e2t mai cur\u00e2nd posibil.",
+      "backHome": "\u00cenapoi acas\u0103"
     }
   },
   "Footer": {

@@ -1,26 +1,39 @@
 'use server'
 
 import { createClient } from '@/lib/supabase/server'
+import { membershipSchema } from '@/lib/validations/forms'
 
 export type JoinFormState = {
   success: boolean
   error: string | null
+  fieldErrors?: Record<string, string[]>
 }
 
 export async function submitMemberApplication(
   _prevState: JoinFormState,
   formData: FormData
 ): Promise<JoinFormState> {
-  const firstName = formData.get('firstName') as string
-  const lastName = formData.get('lastName') as string
-  const email = formData.get('email') as string
-  const phone = (formData.get('phone') as string) || null
-  const message = (formData.get('message') as string) || null
-
-  // Basic validation
-  if (!firstName || !lastName || !email) {
-    return { success: false, error: 'Please fill in all required fields.' }
+  const raw = {
+    firstName: formData.get('firstName') as string,
+    lastName: formData.get('lastName') as string,
+    email: formData.get('email') as string,
+    phone: (formData.get('phone') as string) || '',
+    message: (formData.get('message') as string) || '',
   }
+
+  const result = membershipSchema.safeParse(raw)
+
+  if (!result.success) {
+    const fieldErrors: Record<string, string[]> = {}
+    for (const issue of result.error.issues) {
+      const field = issue.path[0] as string
+      if (!fieldErrors[field]) fieldErrors[field] = []
+      fieldErrors[field].push(issue.message)
+    }
+    return { success: false, error: null, fieldErrors }
+  }
+
+  const { firstName, lastName, email, phone, message } = result.data
 
   const supabase = await createClient()
 
@@ -28,14 +41,13 @@ export async function submitMemberApplication(
     first_name: firstName,
     last_name: lastName,
     email,
-    phone,
-    message,
+    phone: phone || null,
+    message: message || null,
     status: 'pending',
   })
 
   if (error) {
     if (error.code === '23505') {
-      // unique constraint violation (duplicate email)
       return { success: false, error: 'This email has already been submitted.' }
     }
     console.error('Application insert error:', error)

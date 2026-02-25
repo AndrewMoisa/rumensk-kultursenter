@@ -2,15 +2,23 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { createClient } from "@/lib/supabase/client"
-import type { Application, Product, Inquiry, AdminTab } from "../types"
+import type { Application, Product, Inquiry, ContactMessage, Event, AdminTab } from "../types"
 
 export function useAdmin() {
   const [isLoading, setIsLoading] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [dataLoading, setDataLoading] = useState(true)
+  const [dataError, setDataError] = useState<string | null>(null)
   const [error, setError] = useState("")
   const [applications, setApplications] = useState<Application[]>([])
   const [products, setProducts] = useState<Product[]>([])
   const [inquiries, setInquiries] = useState<Inquiry[]>([])
+  const [contacts, setContacts] = useState<ContactMessage[]>([])
+  const [events, setEvents] = useState<Event[]>([])
+  const [showAddEvent, setShowAddEvent] = useState(false)
+  const [editingEvent, setEditingEvent] = useState<Event | null>(null)
+  const [eventFileName, setEventFileName] = useState<string | null>(null)
+  const [editEventFileName, setEditEventFileName] = useState<string | null>(null)
   const [showAddProduct, setShowAddProduct] = useState(false)
   const [activeTab, setActiveTab] = useState<AdminTab>("members")
   const [selectedFileName, setSelectedFileName] = useState<string | null>(null)
@@ -54,6 +62,28 @@ export function useAdmin() {
     }
   }, [supabase])
 
+  const loadContacts = useCallback(async () => {
+    const { data, error } = await supabase
+      .from('contact_messages')
+      .select('*')
+      .order('created_at', { ascending: false })
+
+    if (!error && data) {
+      setContacts(data)
+    }
+  }, [supabase])
+
+  const loadEvents = useCallback(async () => {
+    const { data, error } = await supabase
+      .from('events')
+      .select('*')
+      .order('created_at', { ascending: false })
+
+    if (!error && data) {
+      setEvents(data)
+    }
+  }, [supabase])
+
   // --- Session ---
 
   useEffect(() => {
@@ -66,11 +96,19 @@ export function useAdmin() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      loadApplications()
-      loadProducts()
-      loadInquiries()
+      setDataLoading(true)
+      setDataError(null)
+      Promise.all([
+        loadApplications(),
+        loadProducts(),
+        loadInquiries(),
+        loadContacts(),
+        loadEvents(),
+      ])
+        .catch(() => setDataError('Failed to load data. Please refresh.'))
+        .finally(() => setDataLoading(false))
     }
-  }, [isAuthenticated, loadApplications, loadProducts, loadInquiries])
+  }, [isAuthenticated, loadApplications, loadProducts, loadInquiries, loadContacts, loadEvents])
 
   // --- Auth ---
 
@@ -115,11 +153,16 @@ export function useAdmin() {
       .update({ status: newStatus })
       .eq('id', id)
 
-    if (!error) {
-      setApplications(prev =>
-        prev.map(app => app.id === id ? { ...app, status: newStatus } : app)
-      )
+    if (error) {
+      console.error('Status update error:', error)
+      setDataError(`Failed to update status: ${error.message}`)
+      return
     }
+
+    setDataError(null)
+    setApplications(prev =>
+      prev.map(app => app.id === id ? { ...app, status: newStatus } : app)
+    )
   }
 
   // --- Products ---
@@ -223,6 +266,135 @@ export function useAdmin() {
     }
   }
 
+  // --- Events ---
+
+  async function handleAddEvent(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    const title = formData.get("eventTitle") as string
+    const description = (formData.get("eventDescription") as string) || null
+    const day = (formData.get("eventDay") as string) || null
+    const date = (formData.get("eventDate") as string) || null
+    const time = (formData.get("eventTime") as string) || null
+    const file = formData.get("eventImage") as File | null
+
+    let image_url: string | null = null
+
+    if (file && file.size > 0) {
+      const fileExt = file.name.split('.').pop()
+      const fileName = `${crypto.randomUUID()}.${fileExt}`
+
+      const { error: uploadError } = await supabase.storage
+        .from('product-images')
+        .upload(fileName, file)
+
+      if (uploadError) {
+        console.error('Upload error:', uploadError)
+        return
+      }
+
+      const { data: urlData } = supabase.storage
+        .from('product-images')
+        .getPublicUrl(fileName)
+
+      image_url = urlData.publicUrl
+    }
+
+    const { error } = await supabase.from('events').insert({
+      title,
+      description,
+      day,
+      date,
+      time,
+      image_url,
+    })
+
+    if (!error) {
+      setShowAddEvent(false)
+      setEventFileName(null)
+      loadEvents()
+    }
+  }
+
+  async function handleEditEvent(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (!editingEvent) return
+
+    const formData = new FormData(e.currentTarget)
+    const title = formData.get("editTitle") as string
+    const description = (formData.get("editDescription") as string) || null
+    const day = (formData.get("editDay") as string) || null
+    const date = (formData.get("editDate") as string) || null
+    const time = (formData.get("editTime") as string) || null
+    const file = formData.get("editImage") as File | null
+
+    let image_url = editingEvent.image_url
+
+    if (file && file.size > 0) {
+      const fileExt = file.name.split('.').pop()
+      const fileName = `${crypto.randomUUID()}.${fileExt}`
+
+      const { error: uploadError } = await supabase.storage
+        .from('product-images')
+        .upload(fileName, file)
+
+      if (uploadError) {
+        console.error('Upload error:', uploadError)
+        return
+      }
+
+      const { data: urlData } = supabase.storage
+        .from('product-images')
+        .getPublicUrl(fileName)
+
+      image_url = urlData.publicUrl
+    }
+
+    const { error } = await supabase
+      .from('events')
+      .update({ title, description, day, date, time, image_url })
+      .eq('id', editingEvent.id)
+
+    if (!error) {
+      setEditingEvent(null)
+      setEditEventFileName(null)
+      loadEvents()
+    }
+  }
+
+  async function handleDeleteEvent(id: string) {
+    const { error } = await supabase
+      .from('events')
+      .delete()
+      .eq('id', id)
+
+    if (!error) {
+      setEvents(prev => prev.filter(e => e.id !== id))
+    }
+  }
+
+  async function handleDeleteContact(id: string) {
+    const { error } = await supabase
+      .from('contact_messages')
+      .delete()
+      .eq('id', id)
+
+    if (!error) {
+      setContacts(prev => prev.filter(c => c.id !== id))
+    }
+  }
+
+  async function handleDeleteInquiry(id: string) {
+    const { error } = await supabase
+      .from('product_inquiries')
+      .delete()
+      .eq('id', id)
+
+    if (!error) {
+      setInquiries(prev => prev.filter(i => i.id !== id))
+    }
+  }
+
   return {
     // Auth state
     isLoading,
@@ -230,6 +402,10 @@ export function useAdmin() {
     error,
     handleLogin,
     handleLogout,
+
+    // Data loading state
+    dataLoading,
+    dataError,
 
     // Tab state
     activeTab,
@@ -258,5 +434,24 @@ export function useAdmin() {
 
     // Inquiries
     inquiries,
+    handleDeleteInquiry,
+
+    // Contacts
+    contacts,
+    handleDeleteContact,
+
+    // Events
+    events,
+    showAddEvent,
+    setShowAddEvent,
+    editingEvent,
+    setEditingEvent,
+    eventFileName,
+    setEventFileName,
+    editEventFileName,
+    setEditEventFileName,
+    handleAddEvent,
+    handleEditEvent,
+    handleDeleteEvent,
   }
 }

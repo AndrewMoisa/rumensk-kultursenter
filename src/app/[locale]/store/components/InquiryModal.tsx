@@ -11,6 +11,7 @@ interface InquiryModalProps {
   product: Product
   inquirySubmitted: boolean
   isSubmitting: boolean
+  inquiryErrors: Record<string, string[]>
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
   onClose: () => void
 }
@@ -19,6 +20,7 @@ export default function InquiryModal({
   product,
   inquirySubmitted,
   isSubmitting,
+  inquiryErrors,
   onSubmit,
   onClose,
 }: InquiryModalProps) {
@@ -70,8 +72,11 @@ export default function InquiryModal({
                     type="text"
                     placeholder={t("inquiry.namePlaceholder")}
                     required
-                    className="h-11 border-border focus-visible:ring-accent"
+                    className={`h-11 border-border focus-visible:ring-accent ${inquiryErrors?.name ? 'border-destructive' : ''}`}
                   />
+                  {inquiryErrors?.name && (
+                    <p className="text-xs text-destructive">{inquiryErrors.name[0]}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -84,8 +89,11 @@ export default function InquiryModal({
                     type="email"
                     placeholder={t("inquiry.emailPlaceholder")}
                     required
-                    className="h-11 border-border focus-visible:ring-accent"
+                    className={`h-11 border-border focus-visible:ring-accent ${inquiryErrors?.email ? 'border-destructive' : ''}`}
                   />
+                  {inquiryErrors?.email && (
+                    <p className="text-xs text-destructive">{inquiryErrors.email[0]}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -97,8 +105,11 @@ export default function InquiryModal({
                     name="message"
                     placeholder={t("inquiry.messagePlaceholder")}
                     rows={3}
-                    className="flex w-full rounded-md border border-border bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent resize-none"
+                    className={`flex w-full rounded-md border border-border bg-transparent px-3 py-2 text-base md:text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent resize-none ${inquiryErrors?.message ? 'border-destructive' : ''}`}
                   />
+                  {inquiryErrors?.message && (
+                    <p className="text-xs text-destructive">{inquiryErrors.message[0]}</p>
+                  )}
                 </div>
 
                 <Button

@@ -14,9 +14,9 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   
   const navigation = [
-    { name: t('nav.events'), href: "#events" },
+    { name: t('nav.events'), href: "/events" },
     { name: t('nav.store'), href: "/store" },
-    { name: t('nav.contact'), href: "#contact" },
+    { name: t('nav.contact'), href: "/contact" },
   ]
 
   return (

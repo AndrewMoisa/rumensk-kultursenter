@@ -2,6 +2,7 @@
 
 import { Check, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
 
 export function Members() {
@@ -98,14 +99,14 @@ export function Members() {
                 </div>
 
                 <div className="space-y-2">
-                  <a href="https://docs.google.com/forms/d/1G6JYT71NjkrplMG7v_FyIM1-lLrhix0d9on6ENDX1R8" target="_blank" rel="noopener noreferrer" className="block">
+                  <Link href="/join" className="block">
                     <Button 
                       size="default" 
                       className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2 h-10 px-8 text-base"
                     >
                       {t('button')}
                     </Button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
