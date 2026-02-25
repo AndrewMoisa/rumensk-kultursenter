@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Link } from "@/i18n/routing"
-import { ShoppingBag, MessageSquare, Mail, Calendar } from "lucide-react"
+import { ShoppingBag, MessageSquare, Mail, Calendar, Users, LayoutDashboard, LogOut } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
@@ -38,184 +38,233 @@ export default function AdminPage() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-4">
+      <div className="relative z-10 flex flex-col lg:flex-row min-h-screen">
+        {/* Sidebar — desktop */}
+        <aside className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 border-r border-border/50 bg-background/80 backdrop-blur-sm">
+          {/* Logo + title */}
+          <div className="flex items-center gap-3 px-6 py-5 border-b border-border/50">
             <Link href="/">
               <Image
                 src="/images/logo/logov2.png"
                 alt="RKS Logo"
-                width={48}
-                height={48}
+                width={40}
+                height={40}
                 className="object-contain"
               />
             </Link>
-            <div>
-              <h1 className="font-serif text-2xl md:text-3xl font-bold text-primary">
+            <div className="min-w-0">
+              <h1 className="font-serif text-lg font-bold text-primary truncate">
                 {t("dashboard.heading")}
               </h1>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs text-muted-foreground truncate">
                 {t("dashboard.description")}
               </p>
             </div>
           </div>
-          <Button variant="outline" onClick={admin.handleLogout}>
-            {t("dashboard.logout")}
-          </Button>
+
+          {/* Nav items */}
+          <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+            {[
+              { id: "members" as const, icon: Users, label: t("dashboard.membersList"), count: admin.applications.length },
+              { id: "products" as const, icon: ShoppingBag, label: t("dashboard.products.title"), count: admin.products.length },
+              { id: "inquiries" as const, icon: MessageSquare, label: t("dashboard.inquiries.title"), count: admin.inquiries.length },
+              { id: "contacts" as const, icon: Mail, label: t("dashboard.contacts.title"), count: admin.contacts.length },
+              { id: "events" as const, icon: Calendar, label: t("dashboard.events.title"), count: admin.events.length },
+            ].map(({ id, icon: Icon, label, count }) => (
+              <button
+                key={id}
+                onClick={() => admin.setActiveTab(id)}
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  admin.activeTab === id
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                }`}
+              >
+                <Icon className="w-4 h-4 flex-shrink-0" />
+                <span className="truncate">{label}</span>
+                {count > 0 && (
+                  <span className={`ml-auto text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${
+                    admin.activeTab === id
+                      ? "bg-primary-foreground/20 text-primary-foreground"
+                      : "bg-muted text-muted-foreground"
+                  }`}>
+                    {count}
+                  </span>
+                )}
+              </button>
+            ))}
+          </nav>
+
+          {/* Logout */}
+          <div className="px-3 py-4 border-t border-border/50">
+            <button
+              onClick={admin.handleLogout}
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
+            >
+              <LogOut className="w-4 h-4" />
+              {t("dashboard.logout")}
+            </button>
+          </div>
+        </aside>
+
+        {/* Mobile top bar */}
+        <div className="lg:hidden sticky top-0 z-20 bg-background/95 backdrop-blur-sm border-b border-border/50">
+          <div className="flex items-center justify-between px-4 py-3">
+            <div className="flex items-center gap-3">
+              <Link href="/">
+                <Image
+                  src="/images/logo/logov2.png"
+                  alt="RKS Logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+              </Link>
+              <h1 className="font-serif text-lg font-bold text-primary">
+                {t("dashboard.heading")}
+              </h1>
+            </div>
+            <button
+              onClick={admin.handleLogout}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
+            >
+              <LogOut className="w-4 h-4" />
+              <span className="hidden sm:inline">{t("dashboard.logout")}</span>
+            </button>
+          </div>
+
+          {/* Mobile horizontal nav */}
+          <div className="flex overflow-x-auto px-2 pb-2 gap-1 scrollbar-hide">
+            {[
+              { id: "members" as const, icon: Users, label: t("dashboard.membersList"), count: admin.applications.length },
+              { id: "products" as const, icon: ShoppingBag, label: t("dashboard.products.title"), count: admin.products.length },
+              { id: "inquiries" as const, icon: MessageSquare, label: t("dashboard.inquiries.title"), count: admin.inquiries.length },
+              { id: "contacts" as const, icon: Mail, label: t("dashboard.contacts.title"), count: admin.contacts.length },
+              { id: "events" as const, icon: Calendar, label: t("dashboard.events.title"), count: admin.events.length },
+            ].map(({ id, icon: Icon, label, count }) => (
+              <button
+                key={id}
+                onClick={() => admin.setActiveTab(id)}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-colors flex-shrink-0 ${
+                  admin.activeTab === id
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                {label}
+                {count > 0 && (
+                  <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
+                    admin.activeTab === id
+                      ? "bg-primary-foreground/20 text-primary-foreground"
+                      : "bg-muted text-muted-foreground"
+                  }`}>
+                    {count}
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-          <Card className="border-border/50">
-            <CardContent className="p-6">
-              <p className="text-sm text-muted-foreground">{t("dashboard.totalMembers")}</p>
-              <p className="text-3xl font-bold text-primary">{admin.applications.length}</p>
-            </CardContent>
-          </Card>
-          <Card className="border-border/50">
-            <CardContent className="p-6">
-              <p className="text-sm text-muted-foreground">{t("dashboard.thisMonth")}</p>
-              <p className="text-3xl font-bold text-accent">{admin.approvedCount}</p>
-            </CardContent>
-          </Card>
-          <Card className="border-border/50">
-            <CardContent className="p-6">
-              <p className="text-sm text-muted-foreground">{t("dashboard.pending")}</p>
-              <p className="text-3xl font-bold text-secondary">{admin.pendingCount}</p>
-            </CardContent>
-          </Card>
+        {/* Main content area */}
+        <div className="flex-1 lg:ml-64">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-8">
+              <Card className="border-border/50">
+                <CardContent className="p-4 sm:p-6">
+                  <p className="text-xs sm:text-sm text-muted-foreground">{t("dashboard.totalMembers")}</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-primary">{admin.applications.length}</p>
+                </CardContent>
+              </Card>
+              <Card className="border-border/50">
+                <CardContent className="p-4 sm:p-6">
+                  <p className="text-xs sm:text-sm text-muted-foreground">{t("dashboard.thisMonth")}</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-accent">{admin.approvedCount}</p>
+                </CardContent>
+              </Card>
+              <Card className="border-border/50">
+                <CardContent className="p-4 sm:p-6">
+                  <p className="text-xs sm:text-sm text-muted-foreground">{t("dashboard.pending")}</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-secondary">{admin.pendingCount}</p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Loading / Error State */}
+            {admin.dataLoading && (
+              <Card className="border-border/50 shadow-xl">
+                <CardContent className="p-12 text-center">
+                  <div className="w-8 h-8 border-3 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-4" />
+                  <p className="text-muted-foreground">{t("dashboard.loading")}</p>
+                </CardContent>
+              </Card>
+            )}
+
+            {admin.dataError && (
+              <Card className="border-destructive/50 shadow-xl">
+                <CardContent className="p-8 text-center">
+                  <p className="text-destructive font-medium">{admin.dataError}</p>
+                </CardContent>
+              </Card>
+            )}
+
+            {!admin.dataLoading && !admin.dataError && (
+            <>
+              {/* Tab Content */}
+              {admin.activeTab === "members" && (
+                <MembersTab
+                  applications={admin.applications}
+                  onStatusChange={admin.handleStatusChange}
+                />
+              )}
+
+              {admin.activeTab === "products" && (
+                <ProductsTab
+                  products={admin.products}
+                  showAddProduct={admin.showAddProduct}
+                  setShowAddProduct={admin.setShowAddProduct}
+                  selectedFileName={admin.selectedFileName}
+                  setSelectedFileName={admin.setSelectedFileName}
+                  editingProduct={admin.editingProduct}
+                  setEditingProduct={admin.setEditingProduct}
+                  editFileName={admin.editFileName}
+                  setEditFileName={admin.setEditFileName}
+                  onAddProduct={admin.handleAddProduct}
+                  onEditProduct={admin.handleEditProduct}
+                  onDeleteProduct={admin.handleDeleteProduct}
+                />
+              )}
+
+              {admin.activeTab === "inquiries" && (
+                <InquiriesTab inquiries={admin.inquiries} onDeleteInquiry={admin.handleDeleteInquiry} />
+              )}
+
+              {admin.activeTab === "contacts" && (
+                <ContactsTab contacts={admin.contacts} onDeleteContact={admin.handleDeleteContact} />
+              )}
+
+              {admin.activeTab === "events" && (
+                <EventsTab
+                  events={admin.events}
+                  showAddEvent={admin.showAddEvent}
+                  setShowAddEvent={admin.setShowAddEvent}
+                  eventFileName={admin.eventFileName}
+                  setEventFileName={admin.setEventFileName}
+                  editingEvent={admin.editingEvent}
+                  setEditingEvent={admin.setEditingEvent}
+                  editEventFileName={admin.editEventFileName}
+                  setEditEventFileName={admin.setEditEventFileName}
+                  onAddEvent={admin.handleAddEvent}
+                  onEditEvent={admin.handleEditEvent}
+                  onDeleteEvent={admin.handleDeleteEvent}
+                />
+              )}
+            </>
+            )}
+          </div>
         </div>
-
-        {/* Loading / Error State */}
-        {admin.dataLoading && (
-          <Card className="border-border/50 shadow-xl">
-            <CardContent className="p-12 text-center">
-              <div className="w-8 h-8 border-3 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-muted-foreground">{t("dashboard.loading")}</p>
-            </CardContent>
-          </Card>
-        )}
-
-        {admin.dataError && (
-          <Card className="border-destructive/50 shadow-xl">
-            <CardContent className="p-8 text-center">
-              <p className="text-destructive font-medium">{admin.dataError}</p>
-            </CardContent>
-          </Card>
-        )}
-
-        {!admin.dataLoading && !admin.dataError && (
-        <>
-        {/* Tabs */}
-        <div className="flex gap-2 mb-8 flex-wrap">
-          <Button
-            variant={admin.activeTab === "members" ? "default" : "outline"}
-            onClick={() => admin.setActiveTab("members")}
-            className={admin.activeTab === "members" ? "bg-gradient-to-r from-primary to-primary/90 text-primary-foreground" : ""}
-          >
-            {t("dashboard.membersList")}
-          </Button>
-          <Button
-            variant={admin.activeTab === "products" ? "default" : "outline"}
-            onClick={() => admin.setActiveTab("products")}
-            className={admin.activeTab === "products" ? "bg-gradient-to-r from-primary to-primary/90 text-primary-foreground" : ""}
-          >
-            <ShoppingBag className="w-4 h-4 mr-2" />
-            {t("dashboard.products.title")}
-          </Button>
-          <Button
-            variant={admin.activeTab === "inquiries" ? "default" : "outline"}
-            onClick={() => admin.setActiveTab("inquiries")}
-            className={admin.activeTab === "inquiries" ? "bg-gradient-to-r from-primary to-primary/90 text-primary-foreground" : ""}
-          >
-            <MessageSquare className="w-4 h-4 mr-2" />
-            {t("dashboard.inquiries.title")}
-            {admin.inquiries.length > 0 && (
-              <span className="ml-2 bg-accent/20 text-accent text-xs font-bold px-1.5 py-0.5 rounded-full">
-                {admin.inquiries.length}
-              </span>
-            )}
-          </Button>
-          <Button
-            variant={admin.activeTab === "contacts" ? "default" : "outline"}
-            onClick={() => admin.setActiveTab("contacts")}
-            className={admin.activeTab === "contacts" ? "bg-gradient-to-r from-primary to-primary/90 text-primary-foreground" : ""}
-          >
-            <Mail className="w-4 h-4 mr-2" />
-            {t("dashboard.contacts.title")}
-            {admin.contacts.length > 0 && (
-              <span className="ml-2 bg-accent/20 text-accent text-xs font-bold px-1.5 py-0.5 rounded-full">
-                {admin.contacts.length}
-              </span>
-            )}
-          </Button>
-          <Button
-            variant={admin.activeTab === "events" ? "default" : "outline"}
-            onClick={() => admin.setActiveTab("events")}
-            className={admin.activeTab === "events" ? "bg-gradient-to-r from-primary to-primary/90 text-primary-foreground" : ""}
-          >
-            <Calendar className="w-4 h-4 mr-2" />
-            {t("dashboard.events.title")}
-            {admin.events.length > 0 && (
-              <span className="ml-2 bg-accent/20 text-accent text-xs font-bold px-1.5 py-0.5 rounded-full">
-                {admin.events.length}
-              </span>
-            )}
-          </Button>
-        </div>
-
-        {/* Tab Content */}
-        {admin.activeTab === "members" && (
-          <MembersTab
-            applications={admin.applications}
-            onStatusChange={admin.handleStatusChange}
-          />
-        )}
-
-        {admin.activeTab === "products" && (
-          <ProductsTab
-            products={admin.products}
-            showAddProduct={admin.showAddProduct}
-            setShowAddProduct={admin.setShowAddProduct}
-            selectedFileName={admin.selectedFileName}
-            setSelectedFileName={admin.setSelectedFileName}
-            editingProduct={admin.editingProduct}
-            setEditingProduct={admin.setEditingProduct}
-            editFileName={admin.editFileName}
-            setEditFileName={admin.setEditFileName}
-            onAddProduct={admin.handleAddProduct}
-            onEditProduct={admin.handleEditProduct}
-            onDeleteProduct={admin.handleDeleteProduct}
-          />
-        )}
-
-        {admin.activeTab === "inquiries" && (
-          <InquiriesTab inquiries={admin.inquiries} onDeleteInquiry={admin.handleDeleteInquiry} />
-        )}
-
-        {admin.activeTab === "contacts" && (
-          <ContactsTab contacts={admin.contacts} onDeleteContact={admin.handleDeleteContact} />
-        )}
-
-        {admin.activeTab === "events" && (
-          <EventsTab
-            events={admin.events}
-            showAddEvent={admin.showAddEvent}
-            setShowAddEvent={admin.setShowAddEvent}
-            eventFileName={admin.eventFileName}
-            setEventFileName={admin.setEventFileName}
-            editingEvent={admin.editingEvent}
-            setEditingEvent={admin.setEditingEvent}
-            editEventFileName={admin.editEventFileName}
-            setEditEventFileName={admin.setEditEventFileName}
-            onAddEvent={admin.handleAddEvent}
-            onEditEvent={admin.handleEditEvent}
-            onDeleteEvent={admin.handleDeleteEvent}
-          />
-        )}
-        </>
-        )}
       </div>
     </main>
   )
