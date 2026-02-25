@@ -1,0 +1,128 @@
+"use client"
+
+import { Send, X } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { useTranslations } from "next-intl"
+import type { Product } from "../types"
+
+interface InquiryModalProps {
+  product: Product
+  inquirySubmitted: boolean
+  isSubmitting: boolean
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+  onClose: () => void
+}
+
+export default function InquiryModal({
+  product,
+  inquirySubmitted,
+  isSubmitting,
+  onSubmit,
+  onClose,
+}: InquiryModalProps) {
+  const t = useTranslations("Store")
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+      <Card className="w-full max-w-md border-border/50 shadow-2xl relative">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 p-1 rounded-full hover:bg-muted transition-colors"
+        >
+          <X className="w-5 h-5 text-muted-foreground" />
+        </button>
+
+        <CardContent className="p-6">
+          {inquirySubmitted ? (
+            <div className="text-center py-6">
+              <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Send className="w-7 h-7 text-green-600" />
+              </div>
+              <h3 className="font-serif text-xl font-bold text-primary mb-2">
+                {t("inquiry.successHeading")}
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                {t("inquiry.successDescription")}
+              </p>
+              <Button variant="outline" onClick={onClose}>
+                {t("inquiry.close")}
+              </Button>
+            </div>
+          ) : (
+            <>
+              <h3 className="font-serif text-xl font-bold text-primary mb-1">
+                {t("inquiry.heading")}
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                {product.name} — {product.price} NOK
+              </p>
+
+              <form onSubmit={onSubmit} className="space-y-4">
+                <div className="space-y-2">
+                  <label htmlFor="inquiry-name" className="text-sm font-medium text-foreground">
+                    {t("inquiry.name")}
+                  </label>
+                  <Input
+                    id="inquiry-name"
+                    name="name"
+                    type="text"
+                    placeholder={t("inquiry.namePlaceholder")}
+                    required
+                    className="h-11 border-border focus-visible:ring-accent"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="inquiry-email" className="text-sm font-medium text-foreground">
+                    {t("inquiry.email")}
+                  </label>
+                  <Input
+                    id="inquiry-email"
+                    name="email"
+                    type="email"
+                    placeholder={t("inquiry.emailPlaceholder")}
+                    required
+                    className="h-11 border-border focus-visible:ring-accent"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="inquiry-message" className="text-sm font-medium text-foreground">
+                    {t("inquiry.message")}
+                  </label>
+                  <textarea
+                    id="inquiry-message"
+                    name="message"
+                    placeholder={t("inquiry.messagePlaceholder")}
+                    rows={3}
+                    className="flex w-full rounded-md border border-border bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent resize-none"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full h-11 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground hover:from-primary/90 hover:to-primary/80 shadow-md hover:shadow-lg transition-all"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <span className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                      {t("inquiry.loading")}
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <Send className="w-4 h-4" />
+                      {t("inquiry.send")}
+                    </span>
+                  )}
+                </Button>
+              </form>
+            </>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  )
+}

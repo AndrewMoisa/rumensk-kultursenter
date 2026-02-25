@@ -3,6 +3,7 @@
     "nav": {
       "about": "Despre noi",
       "events": "Evenimente",
+      "store": "Magazin",
       "contact": "Contact"
     },
     "brand": "Centru Cultural",
@@ -153,7 +154,34 @@
       "statuses": {
         "pending": "În așteptare",
         "approved": "Aprobat",
+        "paid": "Plătit",
         "rejected": "Respins"
+      },
+      "products": {
+        "title": "Produse",
+        "add": "Adaugă produs",
+        "name": "Nume",
+        "namePlaceholder": "Numele produsului",
+        "price": "Preț (NOK)",
+        "description": "Descriere",
+        "descriptionPlaceholder": "Scurtă descriere a produsului...",
+        "imageUrl": "URL imagine",
+        "image": "Imaginea produsului",
+        "chooseFile": "Alege imaginea...",
+        "changeImage": "Schimbă imaginea...",
+        "save": "Salvează",
+        "cancel": "Anulează",
+        "actions": "Acțiuni",
+        "noProducts": "Niciun produs încă. Adaugă primul tău produs!"
+      },
+      "inquiries": {
+        "title": "Întrebări",
+        "product": "Produs",
+        "customer": "Client",
+        "email": "Email",
+        "message": "Mesaj",
+        "date": "Data",
+        "noInquiries": "Nicio întrebare încă."
       }
     }
   },
@@ -184,6 +212,28 @@
       "backHome": "Înapoi acasă"
     },
     "alreadyMember": "Ești deja membru?"
+  },
+  "Store": {
+    "backHome": "\u00cenapoi acas\u0103",
+    "badge": "Crea\u021biile copiilor",
+    "heading": "Magazinul micilor arti\u0219ti",
+    "description": "Produse unice f\u0103cute manual de copiii din atelierele noastre comunitare. Fiecare achizi\u021bie sus\u021bine programele noastre culturale.",
+    "noProducts": "Niciun produs disponibil deocamdat\u0103. Reveni\u021bi cur\u00e2nd!",
+    "inquire": "\u00centreab\u0103",
+    "inquiry": {
+      "heading": "Trimite o \u00eentrebare",
+      "name": "Numele t\u0103u",
+      "namePlaceholder": "Numele complet",
+      "email": "Email",
+      "emailPlaceholder": "email@exemplu.com",
+      "message": "Mesaj (op\u021bional)",
+      "messagePlaceholder": "\u00centreb\u0103ri sau cereri speciale...",
+      "send": "Trimite \u00eentrebarea",
+      "loading": "Se trimite...",
+      "successHeading": "\u00centrebare trimis\u0103!",
+      "successDescription": "Mul\u021bumim pentru interes! V\u0103 vom contacta \u00een cur\u00e2nd.",
+      "close": "\u00cenchide"
+    }
   },
   "Footer": {
     "brand": {

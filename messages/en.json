@@ -3,6 +3,7 @@
     "nav": {
       "about": "About",
       "events": "Events",
+      "store": "Shop",
       "contact": "Contact"
     },
     "brand": "Cultural Center",
@@ -174,7 +175,34 @@
       "statuses": {
         "pending": "Pending",
         "approved": "Approved",
+        "paid": "Paid",
         "rejected": "Rejected"
+      },
+      "products": {
+        "title": "Products",
+        "add": "Add Product",
+        "name": "Name",
+        "namePlaceholder": "Product name",
+        "price": "Price (NOK)",
+        "description": "Description",
+        "descriptionPlaceholder": "Short description of the product...",
+        "imageUrl": "Image URL",
+        "image": "Product Image",
+        "chooseFile": "Choose image...",
+        "changeImage": "Change image...",
+        "save": "Save",
+        "cancel": "Cancel",
+        "actions": "Actions",
+        "noProducts": "No products yet. Add your first product!"
+      },
+      "inquiries": {
+        "title": "Inquiries",
+        "product": "Product",
+        "customer": "Customer",
+        "email": "Email",
+        "message": "Message",
+        "date": "Date",
+        "noInquiries": "No inquiries yet."
       }
     }
   },
@@ -205,6 +233,28 @@
       "backHome": "Back to Home"
     },
     "alreadyMember": "Already a member?"
+  },
+  "Store": {
+    "backHome": "Back to home",
+    "badge": "Kids' Creations",
+    "heading": "Little Artists' Shop",
+    "description": "Unique handmade items created by children from our community workshops. Each purchase supports our cultural programs.",
+    "noProducts": "No products available yet. Check back soon!",
+    "inquire": "Inquire",
+    "inquiry": {
+      "heading": "Send an Inquiry",
+      "name": "Your Name",
+      "namePlaceholder": "Full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Message (optional)",
+      "messagePlaceholder": "Any questions or special requests...",
+      "send": "Send Inquiry",
+      "loading": "Sending...",
+      "successHeading": "Inquiry Sent!",
+      "successDescription": "Thank you for your interest! We will get back to you soon.",
+      "close": "Close"
+    }
   },
   "Footer": {
     "brand": {

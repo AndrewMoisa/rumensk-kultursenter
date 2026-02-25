@@ -3,6 +3,7 @@
     "nav": {
       "about": "Om oss",
       "events": "Arrangementer",
+      "store": "Butikk",
       "contact": "Kontakt"
     },
     "brand": "Kultursenter",
@@ -156,7 +157,34 @@
       "statuses": {
         "pending": "Venter",
         "approved": "Godkjent",
+        "paid": "Betalt",
         "rejected": "Avvist"
+      },
+      "products": {
+        "title": "Produkter",
+        "add": "Legg til produkt",
+        "name": "Navn",
+        "namePlaceholder": "Produktnavn",
+        "price": "Pris (NOK)",
+        "description": "Beskrivelse",
+        "descriptionPlaceholder": "Kort beskrivelse av produktet...",
+        "imageUrl": "Bilde-URL",
+        "image": "Produktbilde",
+        "chooseFile": "Velg bilde...",
+        "changeImage": "Endre bilde...",
+        "save": "Lagre",
+        "cancel": "Avbryt",
+        "actions": "Handlinger",
+        "noProducts": "Ingen produkter enn\u00e5. Legg til ditt f\u00f8rste produkt!"
+      },
+      "inquiries": {
+        "title": "Foresp\u00f8rsler",
+        "product": "Produkt",
+        "customer": "Kunde",
+        "email": "E-post",
+        "message": "Melding",
+        "date": "Dato",
+        "noInquiries": "Ingen foresp\u00f8rsler enn\u00e5."
       }
     }
   },
@@ -187,6 +215,28 @@
       "backHome": "Tilbake til forsiden"
     },
     "alreadyMember": "Allerede medlem?"
+  },
+  "Store": {
+    "backHome": "Tilbake til forsiden",
+    "badge": "Barnas kreasjoner",
+    "heading": "Sm\u00e5 kunstneres butikk",
+    "description": "Unike h\u00e5ndlagde produkter laget av barn fra v\u00e5re kulturverksteder. Hvert kj\u00f8p st\u00f8tter v\u00e5re kulturprogrammer.",
+    "noProducts": "Ingen produkter tilgjengelig enn\u00e5. Kom tilbake snart!",
+    "inquire": "Foresp\u00f8rsel",
+    "inquiry": {
+      "heading": "Send en foresp\u00f8rsel",
+      "name": "Ditt navn",
+      "namePlaceholder": "Fullt navn",
+      "email": "E-post",
+      "emailPlaceholder": "din@epost.no",
+      "message": "Melding (valgfritt)",
+      "messagePlaceholder": "Sp\u00f8rsm\u00e5l eller spesielle \u00f8nsker...",
+      "send": "Send foresp\u00f8rsel",
+      "loading": "Sender...",
+      "successHeading": "Foresp\u00f8rsel sendt!",
+      "successDescription": "Takk for din interesse! Vi vil kontakte deg snart.",
+      "close": "Lukk"
+    }
   },
   "Footer": {
     "brand": {
