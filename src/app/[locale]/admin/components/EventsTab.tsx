@@ -192,7 +192,7 @@ export default function EventsTab({
                         {event.time && <span>{event.time}</span>}
                       </div>
                       {event.description && (
-                        <p className="text-xs text-muted-foreground mt-1 line-clamp-5">{event.description}</p>
+                        <p className="text-xs text-muted-foreground mt-1 line-clamp-5 whitespace-pre-line">{event.description}</p>
                       )}
                     </div>
                     <div className="flex gap-1 flex-shrink-0">

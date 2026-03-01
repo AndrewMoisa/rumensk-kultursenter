@@ -25,6 +25,19 @@ export default function EventsPage() {
   const t = useTranslations("Events")
   const [events, setEvents] = useState<Event[]>([])
   const [loading, setLoading] = useState(true)
+  const [expandedEvents, setExpandedEvents] = useState<Set<string>>(new Set())
+
+  const toggleExpand = (id: string) => {
+    setExpandedEvents((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) {
+        next.delete(id)
+      } else {
+        next.add(id)
+      }
+      return next
+    })
+  }
 
   useEffect(() => {
     async function fetchEvents() {
@@ -141,9 +154,19 @@ export default function EventsPage() {
 
                   {/* Description */}
                   {event.description && (
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-3 ">
-                      {event.description}
-                    </p>
+                    <div className="mb-3">
+                      <p className={`text-sm text-muted-foreground leading-relaxed whitespace-pre-line ${!expandedEvents.has(event.id) ? 'line-clamp-4' : ''}`}>
+                        {event.description}
+                      </p>
+                      {event.description.length > 150 && (
+                        <button
+                          onClick={() => toggleExpand(event.id)}
+                          className="text-xs text-accent hover:text-accent/80 font-medium mt-1.5 transition-colors"
+                        >
+                          {expandedEvents.has(event.id) ? t("showLess") : t("readMore")}
+                        </button>
+                      )}
+                    </div>
                   )}
 
                   {/* Full Date */}
