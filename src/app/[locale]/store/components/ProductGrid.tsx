@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import { Palette, ShoppingBag, Send } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
@@ -14,6 +15,19 @@ interface ProductGridProps {
 
 export default function ProductGrid({ products, onInquire }: ProductGridProps) {
   const t = useTranslations("Store")
+  const [expandedProducts, setExpandedProducts] = useState<Set<string>>(new Set())
+
+  const toggleExpand = (id: string) => {
+    setExpandedProducts((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) {
+        next.delete(id)
+      } else {
+        next.add(id)
+      }
+      return next
+    })
+  }
 
   if (products.length === 0) {
     return (
@@ -52,9 +66,19 @@ export default function ProductGrid({ products, onInquire }: ProductGridProps) {
               {product.name}
             </h3>
             {product.description && (
-              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                {product.description}
-              </p>
+              <div className="mb-3">
+                <p className={`text-sm text-muted-foreground whitespace-pre-line ${!expandedProducts.has(product.id) ? 'line-clamp-2' : ''}`}>
+                  {product.description}
+                </p>
+                {product.description.length > 80 && (
+                  <button
+                    onClick={() => toggleExpand(product.id)}
+                    className="text-xs text-accent hover:text-accent/80 font-medium mt-1 transition-colors"
+                  >
+                    {expandedProducts.has(product.id) ? t("showLess") : t("readMore")}
+                  </button>
+                )}
+              </div>
             )}
             <div className="flex items-center justify-between">
               <span className="text-lg font-bold text-accent">

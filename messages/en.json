@@ -285,6 +285,8 @@
     "description": "Unique handmade items created by children from our community workshops. Each purchase supports our cultural programs.",
     "noProducts": "No products available yet. Check back soon!",
     "inquire": "Inquire",
+    "readMore": "Read more",
+    "showLess": "Show less",
     "inquiry": {
       "heading": "Send an Inquiry",
       "name": "Your Name",

@@ -267,6 +267,8 @@
     "description": "Unike h\u00e5ndlagde produkter laget av barn fra v\u00e5re kulturverksteder. Hvert kj\u00f8p st\u00f8tter v\u00e5re kulturprogrammer.",
     "noProducts": "Ingen produkter tilgjengelig enn\u00e5. Kom tilbake snart!",
     "inquire": "Foresp\u00f8rsel",
+    "readMore": "Les mer",
+    "showLess": "Vis mindre",
     "inquiry": {
       "heading": "Send en foresp\u00f8rsel",
       "name": "Ditt navn",

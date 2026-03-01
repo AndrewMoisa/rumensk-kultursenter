@@ -172,7 +172,7 @@ export default function ProductsTab({
                           <span className="text-accent font-semibold text-sm flex-shrink-0">{product.price} NOK</span>
                         </div>
                         {product.description && (
-                          <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{product.description}</p>
+                          <p className="text-xs text-muted-foreground mt-1 line-clamp-2 whitespace-pre-line">{product.description}</p>
                         )}
                       </div>
                     </div>
@@ -265,7 +265,7 @@ export default function ProductsTab({
                       <td className="py-3 px-4 text-muted-foreground">{index + 1}</td>
                       <td className="py-3 px-4 font-medium text-foreground">{product.name}</td>
                       <td className="py-3 px-4 text-accent font-semibold">{product.price} NOK</td>
-                      <td className="py-3 px-4 text-muted-foreground max-w-xs truncate">{product.description || '—'}</td>
+                      <td className="py-3 px-4 text-muted-foreground max-w-xs truncate whitespace-pre-line">{product.description || '—'}</td>
                       <td className="py-3 px-4">
                         <div className="flex gap-1">
                           <Button
