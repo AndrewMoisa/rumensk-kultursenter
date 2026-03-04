@@ -45,7 +45,7 @@ export default function EventsPage() {
       const { data } = await supabase
         .from("events")
         .select("*")
-        .order("created_at", { ascending: true })
+        .order("created_at", { ascending: false })
 
       if (data) setEvents(data)
       setLoading(false)
