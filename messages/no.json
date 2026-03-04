@@ -338,5 +338,11 @@
       "email": "rumensk.kultursenter@gmail.com"
     },
     "copyright": "© 2026 Rumensk Kultursenter. Alle rettigheter reservert."
+  },
+  "CookieConsent": {
+    "title": "Vi bruker informasjonskapsler",
+    "description": "Denne nettsiden bruker nødvendige informasjonskapsler for nettstedets funksjonalitet, inkludert språkinnstillinger og sikker autentisering. Ingen sporings- eller reklamekapsler brukes.",
+    "accept": "Forstått",
+    "close": "Lukk"
   }
 }

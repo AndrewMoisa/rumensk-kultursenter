@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { StructuredData } from '@/components/StructuredData';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { CookieConsent } from '@/components/CookieConsent';
 import "../globals.css";
 
 export const viewport: Viewport = {
@@ -104,6 +105,7 @@ export default async function LocaleLayout({
         <ErrorBoundary>
           <NextIntlClientProvider messages={messages}>
             {children}
+            <CookieConsent />
           </NextIntlClientProvider>
         </ErrorBoundary>
       </body>

@@ -339,5 +339,11 @@
       "email": "rumensk.kultursenter@gmail.com"
     },
     "copyright": "© 2026 Rumensk Kultursenter. Toate drepturile rezervate."
+  },
+  "CookieConsent": {
+    "title": "Folosim cookie-uri",
+    "description": "Acest site folosește cookie-uri esențiale pentru funcționalitatea site-ului, inclusiv preferințele de limbă și autentificarea securizată. Nu sunt utilizate cookie-uri de urmărire sau publicitate.",
+    "accept": "Am înțeles",
+    "close": "Închide"
   }
 }
