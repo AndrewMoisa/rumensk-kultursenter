@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import { StructuredData } from '@/components/StructuredData';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { CookieConsent } from '@/components/CookieConsent';
+import { Analytics } from '@vercel/analytics/react';
 import "../globals.css";
 
 export const viewport: Viewport = {
@@ -108,6 +109,7 @@ export default async function LocaleLayout({
             <CookieConsent />
           </NextIntlClientProvider>
         </ErrorBoundary>
+        <Analytics />
       </body>
     </html>
   );
